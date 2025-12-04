@@ -1,0 +1,52 @@
+---
+title: "Grado e intensidad del pass-through cambiario en Guatemala: un enfoque de series de tiempo multivariadas"
+author: 
+    - "Rita Guadalupe Pérez Romero"
+    - "Paulo Augusto Garrido Grijalva"
+    - "Kevin Alexander Molina Portales"
+    - "José Ricardo De León Solis"
+abstract: |
+    % estructura: objetivo y motivación, metodología abreviada, resultados principales
+    Resumen aquí
+bibliography: base-datos-referencias.bib
+biblio-title: Referencias
+lang: es
+format:
+    pdf:
+        toc: true
+        toc-title: Contenidos
+        number-sections: true
+        documentclass: article 
+        classoption: [twocolumn]
+        papersize: letter  
+        fontfamily: XCharter
+        mathfont: XCharter-Math.otf
+        include-in-header: 
+            text: 
+                \usepackage{microtype}
+                \usepackage{amsmath, amssymb}
+        output-file: transmision_pm_g4.pdf
+        cite-method: biblatex
+        biblatexoptions: 
+            - style=authoryear
+            - backend=biber 
+            - minnames=1
+            - maxnames=3     
+---
+
+# Introducción
+% estructura: de lo más general a lo más especifico. Terminar con pregunta de investigación que deseamos responder.
+
+# Revisión de la literatura
+
+# Metodología de investigación
+## Variables
+## Datos
+## modelo
+## esquema de identificación
+
+# Resultados y discusión
+<void>
+
+# Conclusiones
+<void>
