@@ -25,6 +25,7 @@ format:
             text: 
                 \usepackage{microtype}
                 \usepackage{amsmath, amssymb}
+                \usepackage{booktabs}
         output-file: transmision_pm_g4.pdf
         cite-method: biblatex
         biblatexoptions: 
@@ -40,9 +41,27 @@ format:
 # Revisión de la literatura
 
 # Metodología de investigación
-## Variables
-## Datos
+## Variables y datos
+Las variables que se modelaron son:
+\begin{table}
+\centering
+\caption{Variables, cantidad, frecuencia y origen de datos}
+\label{tab:variables}
+\begin{tabular}{lccc}
+\toprule
+\textbf{variable} & \textbf{Numero de datos} & \textbf{periodicidad} & \textbf{fuente} \\
+\midrule
+inflación & 154 & mensual & Banco de Guatemala \\
+tipo de cambio nominal & 154 & mensual & Banco de Guatemala \\
+tipo de cambio real & 154 & mensual & SECMCA \\
+IMAE & 154 & mensual & Banco de Guatemala \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 ## modelo
+
+
 ## esquema de identificación
 
 # Resultados y discusión
