@@ -109,13 +109,13 @@ y^{gap} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
 \end{equation}
 
 
-## modelo
+## Modelo
 
 
-## esquema de identificación
+## Esquema de identificación
 
 # Resultados y discusión
-<void>
+
 
 # Conclusiones
-<void>
+
