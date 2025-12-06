@@ -13,21 +13,22 @@ biblio-title: Referencias
 lang: es
 format:
     pdf:
+        pdf-engine: lualatex
         toc: true
         toc-title: Contenidos
         number-sections: true
         documentclass: article 
         classoption: [twocolumn]
         papersize: letter  
-        fontfamily: XCharter
+        mainfont: XCharter
         mathfont: XCharter-Math.otf
         include-in-header: 
             text: 
                 \usepackage{microtype}
-                \usepackage{amsmath, amssymb}
+                \usepackage{amsmath}
                 \usepackage{booktabs,caption}
         output-file: Passthrough_GTM_G4.pdf
-        cite-method: biblatex
+        cite-method: citeproc
         biblatexoptions: 
             - style=authoryear
             - backend=biber 
