@@ -50,7 +50,7 @@ Para realizar la modelación del fenómeno fue necesario construir variables que
 \label{tab:variables}
 \begin{tabular}{lccc}
 \toprule
-\textbf{variable} & \textbf{Numero de datos} & \textbf{periodicidad} & \textbf{fuente} \\
+\textbf{Variable} & \textbf{Numero de datos} & \textbf{periodicidad} & \textbf{fuente} \\
 \midrule
 Índice de precios al consumidor (IPC) & 153 & mensual & Banco de Guatemala \\
 Tipo de cambio nominal (TCN) & 153 & mensual & Banco de Guatemala \\
