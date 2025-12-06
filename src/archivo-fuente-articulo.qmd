@@ -25,7 +25,7 @@ format:
             text: 
                 \usepackage{microtype}
                 \usepackage{amsmath, amssymb}
-                \usepackage{booktabs}
+                \usepackage{booktabs,caption}
         output-file: Passthrough_GTM_G4.pdf
         cite-method: biblatex
         biblatexoptions: 
@@ -42,22 +42,72 @@ format:
 
 # Metodología de investigación
 ## Variables y datos
-Las variables que se modelaron son:
-\begin{table}
+Para realizar la modelación del fenómeno fue necesario construir variables que fuesen estacionarias dado que los datos brutos no poseen esta propiedad. Dicha construcción se realizó a partir de las variables crudas que se muestran en la tabla \ref{tab:variables}.
+
+\begin{table*}
 \centering
-\caption{Variables, cantidad, frecuencia y origen de datos}
+\caption{Variable, cantidad, frecuencia y origen de datos}
 \label{tab:variables}
 \begin{tabular}{lccc}
 \toprule
 \textbf{variable} & \textbf{Numero de datos} & \textbf{periodicidad} & \textbf{fuente} \\
 \midrule
-inflación & 154 & mensual & Banco de Guatemala \\
-tipo de cambio nominal & 154 & mensual & Banco de Guatemala \\
-tipo de cambio real & 154 & mensual & SECMCA \\
-IMAE & 154 & mensual & Banco de Guatemala \\
+Índice de precios al consumidor (IPC) & 153 & mensual & Banco de Guatemala \\
+Tipo de cambio nominal (TCN) & 153 & mensual & Banco de Guatemala \\
+Tipo de cambio efectivo real (ITCER) & 153 & mensual & SECMCA \\
+Índice mensual de la actividad económica (IMAE) & 153 & mensual & Banco de Guatemala \\
 \bottomrule
 \end{tabular}
-\end{table}
+\caption*{Fuente: elaboración propia}
+\end{table*}
+
+A continuación se detallan las transformaciones realizadas a estas variables y las variables resultantes, las cuales fueron empleadas en el modelo VAR.
+
+### Inflación mensual anualizada
+
+Con el fin de suavizar el comportamiento de la inflación, se calculó la inflación mensual anualizada como se muestra en la ecuación \ref{ec:inf-men-an}.
+
+\begin{equation} \label{ec:inf-men-an}
+\pi^{(12)} = \left( 1 + \pi_t \right)^{12} - 1
+\end{equation}
+
+donde:
+$$
+\pi_t = \frac{IPC_t - IPC_{t-1}}{IPC_{t-1}}
+$$
+
+Esta inflación representa el valor de la inflación en todo el año si la inflación de todos los meses hubiese sido la misma del periodo estudiado.
+
+### Variación mensual anualizada del tipo de cambio nominal
+
+Para esta variable también fue necesario suavizar su comportamiento, por lo que se empleo la ecuación \ref{ec:tcn-men-an} para lograr este objetivo.
+
+\begin{equation} \label{ec:tcn-men-an}
+\Delta e^{(12)}_t = \left( 1 + \Delta e_t \right)^{12} - 1
+\end{equation}
+
+donde:
+$$
+\Delta e_t = \frac{TCN_t - TCN_{t-1}}{TCN_{t-1}}
+$$
+
+Esta variación del tipo de cambio nominal representa el cambio total en el año si el cambio mensual hubiese sido el mismo del periodo estudiado durante todos los meses. 
+
+### Desalineación del tipo de cambio efectivo real
+
+la desalineación del tipo de cambio efectivo real representa cuando se desvia esta variable de su tendencia general. La tendencia general se obtuvo aplicando el filtro Hodrick-Prescott con parámetro $\lambda = 14\; 400$. Esta desalineación se calculó mediante la ecuación \ref{ec:tcr-gap}
+
+\begin{equation} \label{ec:tcr-gap}
+tcr^{gap} = \frac{ITCER_t - ITCER_{hp,t}}{ITCER_{hp,t}}
+\end{equation}
+
+### Brecha del producto
+Debido a que el producto interno bruto (PIB) no se mide con la frecuencia necesaria, se emplea el IMAE como proxy del PIB, ya que este índice mide el volumen de producción en un mes. Adicionalmente se desea saber que tanto por encima o por debajo del PIB potencia se encuentra la economía de Guatemala. Para estimar este PIB potencial, de nuevo se aplica el filtro Hodrick-Prescott al IMAE y se extrae su tendencia. La brecha fue calculada mediante la ecuación \ref{ec:y-gap}
+
+\begin{equation} \label{ec:y-gap}
+y^{gap} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
+\end{equation}
+
 
 ## modelo
 
