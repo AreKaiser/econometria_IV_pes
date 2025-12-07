@@ -10,6 +10,7 @@ abstract: |
     Resumen aquí
 bibliography: base-datos-referencias.bib
 biblio-title: Referencias
+csl: chicago-author-date.csl
 lang: es
 format:
     pdf:
@@ -28,12 +29,7 @@ format:
                 \usepackage{amsmath}
                 \usepackage{booktabs,caption}
         output-file: Passthrough_GTM_G4.pdf
-        cite-method: citeproc
-        biblatexoptions: 
-            - style=authoryear
-            - backend=biber 
-            - minnames=1
-            - maxnames=3     
+        cite-method: citeproc    
 ---
 
 # Introducción
@@ -51,7 +47,7 @@ Para realizar la modelación del fenómeno fue necesario construir variables que
 \label{tab:variables}
 \begin{tabular}{lccc}
 \toprule
-\textbf{Variable} & \textbf{Numero de datos} & \textbf{periodicidad} & \textbf{fuente} \\
+\textbf{Variable} & \textbf{Numero de datos} & \textbf{Periodicidad} & \textbf{Fuente} \\
 \midrule
 Índice de precios al consumidor (IPC) & 153 & mensual & Banco de Guatemala \\
 Tipo de cambio nominal (TCN) & 153 & mensual & Banco de Guatemala \\
@@ -111,7 +107,13 @@ y^{gap} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
 
 
 ## Modelo
+Para poder evaluar el efecto passthrough del tipo de cambio en la economía de Guatemala se utilizó un modelo VAR con restricciones de corto plazo recursivas (Cholesky), descrito por @Sims1980. El objetivo es imponer un orden sobre como responden las variables, empezando por la más exógena y terminando con la más endógena.
 
+Siguiendo la notación de @Enders, un modelo VAR(p) está dado por
+
+\begin{equation}\label{ec:varp}
+B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_p X_{t-p} + \varepsilon_t, \; t = 1,..., T
+\end{equation}
 
 ## Esquema de identificación
 
@@ -119,4 +121,6 @@ y^{gap} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
 
 
 # Conclusiones
+
+# Referencias
 
