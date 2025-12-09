@@ -1,0 +1,15 @@
+# Resultados y discusión
+
+## Descomposición de varianza de errores de pronóstico (FEVD por sus siglas en inglés)
+Los resultados del FEVD permiten identificar el peso de cada shock en la evolución de las variables del modelo. 
+
+En el caso de la brecha del tipo de cambio real (TCR), se observa que toda su variación a lo largo del horizonte se explica por sus propios shocks. Inclusive cuando se observa los horizontes más lejanos, apenas aparecen contribuciones marginales provenientes de las demás variables en al rededor de un 10%. En otras palabras, en el comportamiento de esta variable predominan  perturbaciones internas, esto resulta esperable puesto que se realizó la restricción considerando el TCR como la más exógena.
+
+Respecto al IMAE, el patrón es parecido, la brecha de actividad permanece casi totalmente explicada por sus propios shocks en todos los horizontes. La escasa contribución  de las variables nominales indica que, al menos en este modelo, los movimientos del ciclo económico no parecen responder de manera directa a la inflación, ni al tipo de cambio nominal o real.
+
+En contraste, el tipo de cambio nominal muestra una dinámica diferente. Aunque su comportamiento se explica principalmente por shocks propios, una fracción creciente proviene del tipo de cambio real. Esto sugiere que existe un efecto de retroalimentación del tipo de cambio real en el tipo de cambio nominal de cerca del 25%.
+
+Finalmente, en la inflación, en análisis evidencia un patrón donde el pass-through del tipo de cambio es parcial. La inflación mensual permanece mayoritariamente explicada por shocks propios, pero aparece un componente relevante que es proveniente del tipo de cambio real, especialmente a horizontes mas lejanos. El aporte del tipo de cambio nominal es menor, pero consistente con un traspaso limitado. Este resultado es relevante porque confirma la existencia de un mecanismo de transmisión desde el TCR hacia los precios (y considerando que se tomó como más exógena, en vez del tipo de cambio nominal), aunque dicho proceso es parcial y depende de las condiciones iniciales. La señal que deja el FEVD es clara: el tipo de cambio nominal sí importa para la dinámica inflacionaria, pero la mayor parte de las variaciones de precios sigue dependiendo de factores domésticos.
+
+En conjunto, los cuatro FEVD indican un sistema donde las variables reales y nominales tienden a estar dominadas por sus propias perturbaciones, el TCR tiene un rol relevante como transmisor hacia el tipo de cambio nominal y hacia la inflación, y el pass-through existe pero es limitado, coherente con una economía donde la política macroeconómica y las expectativas anclan parcialmente la transmisión del tipo de cambio hacia los precios.
+

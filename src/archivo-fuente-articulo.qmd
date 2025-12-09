@@ -1,5 +1,5 @@
 ---
-title: "Grado e intensidad del pass-through cambiario en Guatemala: un enfoque de series de tiempo multivariadas"
+title: "Magnitud y velocidad del pass-through cambiario en Guatemala: un enfoque de series de tiempo multivariadas"
 author: 
     - "Rita Guadalupe Pérez Romero"
     - "Paulo Augusto Garrido Grijalva"
@@ -23,212 +23,35 @@ format:
         papersize: letter  
         mainfont: XCharter
         mathfont: XCharter-Math.otf
+        geometry:
+            - left=2cm
+            - right=2cm
+            - top=2.5cm
+            - bottom=2.5cm
         include-in-header: 
             text: 
                 \usepackage{microtype}
                 \usepackage{amsmath}
                 \usepackage{booktabs,caption}
+                \setlength{\columnsep}{0.85cm}
         output-file: Passthrough_GTM_G4.pdf
         cite-method: citeproc    
 ---
 
-# Introducción
-El pass-through cambiario se define conceptualmente como la variación porcentual en los precios internos (por ejemplo, el índice de precios al consumidor o a los precios de importación) resultante de un cambio del uno por ciento en el tipo de cambio entre países exportadores e importadores. Este fenómeno es crucial para el debate sobre políticas monetarias apropiadas y estabilidad macroeconómica. En un escenario de una economía pequeña y abierta, como el caso de Guatemala, el tipo de cambio es un canal de transmisión de choques económicos que afecta la estructura de costos interna de las empresas y, en consecuencia, a los precios del consumidor final. Dada la adopción del esquema de metas explícitas de inflación en Guatemala desde 2005, cuyo objetivo primordial es mantener la estabilidad del nivel general de precios, resulta fundamental para la autoridad monetaria comprender la magnitud (coeficiente de traspaso) y la velocidad con que los movimientos cambiarios se trasladan a los precios internos.
+{{< include _01-introduccion.qmd >}}
 
-La pregunta central de esta investigación es: ¿cuál es la magnitud y velocidad del pass-through cambiario del tipo de cambio nominal hacia la inflación en Guatemala, de acuerdo con la evidencia de un modelo VAR? El análisis de esta pregunta se enmarca en la teoría que sugiere una relación positiva y significativa entre el entorno inflacionario y la magnitud del pass-through. La literatura muestra que un entorno de baja inflación está asociado con una menor persistencia esperada de los choques de costos y precios, lo que reduce el incentivo de las empresas para ajustar sus precios, lo cual resulta en un menor pass-through. El papel de la credibilidad del Banco Central (Banguat) en el anclaje de las expectativas y la reducción de la persistencia esperada es un elemento teórico clave para interpretar el caso guatemalteco, donde el uso de la tasa de interés líder de la política monetaria busca influir en la meta de inflación bajo el esquema de metas explícitas de inflación.
+{{< include _02-literatura.qmd >}}
 
-Para capturar las relaciones dinámicas y posiblemente bidireccionales entre el tipo de cambio y los precios internos, se emplea la metodología de un modelo de vectores autorregresivos (VAR), ya que una regresión de pass-through de una sola ecuación no considera que la inflación doméstica pueda afectar al tipo de cambio. Este enfoque multivariado es necesario para el estudio empírico del pass-through, permitiendo examinar el mecanismo de transmisión a través de las funciones impulso-respuesta (mediante una identificación de choques estructurales), lo que permite medir los impactos en el nivel de precios a lo largo de un horizonte temporal. La contribución principal de este estudio es proveer evidencia empírica sobre la magnitud y velocidad del pass-through en Guatemala, contextualizando sobre el régimen de metas explícitas de inflación para amortiguar los choques cambiarios, lo cual es parte fundamental para la evaluación y conducción de la política monetaria.
+{{< include _03-metodologia.qmd >}}
 
-El presente trabajo se estructura en cinco secciones. La sección 2 presenta la revisión de literatura relevante sobre los determinantes del pass-through y la conceptualización del mismo. La sección 3 describe los datos y la metodología econométrica empleada, detallando la especificación del modelo VAR. Posteriormente, la sección 4 muestra los resultados empíricos y su discusión. Finalmente, la sección 5 presenta las conclusiones derivadas de los resultados obtenidos y, algunas implicaciones de política económica.
+{{< include _04-resultados.qmd >}}
 
-
-# Revisión de la literatura
-
-## Pass-through del tipo de cambio y precios internos
-
-Conceptualmente, @Goldberg1997 definen pass-through como la variación porcentual en los precios de importación denominados en moneda nacional (o doméstica) resultante de un cambio del uno por ciento en el tipo de cambio entre países exportadores e importadores. Por su parte, @Orenos lo conceptualiza como el efecto de la depreciación nominal del tipo de cambio sobre el nivel general de precios internos de una economía.
-
-@Orenos retoma la distinción entre los dos canales mediante los cuales el efecto de pass-through se transmite a los precios internos; estos son el canal directo y el indirecto. El efecto directo o de primer orden se manifiesta de manera secuencial: un choque cambiario modifica inicialmente el precio de los bienes importados (de consumo, insumos o capital), que luego se traslada a la estructura de costos interna de las empresas y, en última instancia, al consumidor final. Por otra parte, el canal indirecto opera a través de la demanda agregada; una depreciación cambiaria abarata los bienes domésticos, aumentando su demanda y generando una presión al alza sobre los precios internos.
-
-El análisis de pass-through se centra en tres características fundamentales: la magnitud (coeficiente de traspaso), la velocidad (el tiempo que tarda el choque en materializarse en los precios) y la simetría (si la respuesta es la misma a la apreciación y a la depreciación).
-
-## Política monetaria, expectativas y actividad económica
-	
-El grado de pass-through (la magnitud), no depende únicamente de factores microeconómicos, sino también de elementos macroeconómicos, siendo el entorno inflacionario un determinante clave.
-
-### El papel de la política monetaria y las expectativas
-
-@Taylor2000 argumenta que el grado de pass-through depende de la persistencia esperada de los choques de costos o precios, siendo una baja inflación asociada con una menor persistencia de la inflación y de los cambios en los costos (como los cambiarios). Por lo tanto, si un choque cambiario es percibido como temporal (baja persistencia), las empresas tienen menos incentivos para ajustar sus precios (por el objetivo de mantener la cuota de mercado), resultando en un menor pass-through. Este entorno de baja inflación, promovido por una política monetaria con credibilidad, actúa como un amortiguador ante choques adversos a los precios. 
-
-En contraste, en escenarios de alta inflación, existe mayor incertidumbre y las empresas tienden a cambiar sus precios con mayor frecuencia, por lo que el traspaso es mayor. @Orenos, sugiere ante la evidencia empírica que la disminución del pass-through en regímenes de baja inflación se debe a un debilitamiento de la covarianza entre el tipo de cambio y los precios.
-
-Bajo lo mencionado sobre los resultados de @Taylor2000, se muestra que el papel de la política monetaria es fundamental para la credibilidad y el anclaje de expectativas. Por lo que, si se generalizan las ideas anteriores: en un entorno de baja incertidumbre, cuando el Banco Central ha logrado consolidar una postura monetaria coherente con la meta de inflación, los agentes económicos confiarán en que la autoridad actuará para mantener dicha meta, haciendo que las expectativas no se desvinculen y que el pass-through sea pequeño.
-
-Otros autores como @Choudhri2006, utilizando una muestra amplia de países, encontraron una asociación positiva y significativa entre el pass-through y la tasa de inflación promedio. Es decir, el pass-through a los precios internos tiende a ser mayor en países con experiencias inflacionarias más altas.
-
-@Campa2005 también proporcionaron evidencia con respecto al tema, sugiriendo que la volatilidad cambiaria y la volatilidad inflacionaria de un país se correlacionan positivamente con el pass-through a los precios de importación, encontrando también que la estabilidad monetaria hace que la política monetaria sea más efectiva al reducir el pass-through.
-
-### El papel de la actividad económica
-
-El ciclo económico influye en la capacidad de las empresas para trasladar los choques de costos a los precios [@Orenos]. El pass-through es mayor en periodos de expansión económica (aumento de la demanda) ya que las empresas tienen mayor facilidad para trasladar los choques a los precios. Por el contrario, en escenarios de recesión (caída de la demanda), la capacidad de trasladar los choques disminuye [@Goldfajn2000]. De esta manera, la fase del ciclo económico puede condicionar el grado del pass-through. 
-
-
-
-# Metodología de investigación
-## Variables y datos
-Para realizar la modelación del fenómeno fue necesario construir variables que fuesen estacionarias dado que los datos brutos no poseen esta propiedad. Dicha construcción se realizó a partir de las variables crudas que se muestran en la tabla \ref{tab:variables}.
-
-\begin{table*}
-\centering
-\caption{Variable, cantidad, frecuencia y origen de datos}
-\label{tab:variables}
-\begin{tabular}{lccc}
-\toprule
-\textbf{Variable} & \textbf{Numero de datos} & \textbf{Periodicidad} & \textbf{Fuente} \\
-\midrule
-Índice de precios al consumidor (IPC) & 153 & mensual & Banco de Guatemala \\
-Tipo de cambio nominal (TCN) & 153 & mensual & Banco de Guatemala \\
-Tipo de cambio efectivo real (ITCER) & 153 & mensual & SECMCA \\
-Índice mensual de la actividad económica (IMAE) & 153 & mensual & Banco de Guatemala \\
-\bottomrule
-\end{tabular}
-\caption*{Fuente: elaboración propia}
-\end{table*}
-
-A continuación se detallan las transformaciones realizadas a estas variables y las variables resultantes, las cuales fueron empleadas en el modelo VAR.
-
-### Inflación mensual anualizada
-
-Con el fin de suavizar el comportamiento de la inflación, se calculó la inflación mensual anualizada como se muestra en la ecuación \ref{ec:inf-men-an}.
-
-\begin{equation} \label{ec:inf-men-an}
-\pi^{(12)} = \left( 1 + \pi_t \right)^{12} - 1
-\end{equation}
-
-donde:
-$$
-\pi_t = \frac{IPC_t - IPC_{t-1}}{IPC_{t-1}}
-$$
-
-Esta inflación representa el valor de la inflación en todo el año si la inflación de todos los meses hubiese sido la misma del periodo estudiado.
-
-### Variación mensual anualizada del tipo de cambio nominal
-
-Para esta variable también fue necesario suavizar su comportamiento, por lo que se empleo la ecuación \ref{ec:tcn-men-an} para lograr este objetivo.
-
-\begin{equation} \label{ec:tcn-men-an}
-\Delta e^{(12)}_t = \left( 1 + \Delta e_t \right)^{12} - 1
-\end{equation}
-
-donde:
-$$
-\Delta e_t = \frac{TCN_t - TCN_{t-1}}{TCN_{t-1}}
-$$
-
-Esta variación del tipo de cambio nominal representa el cambio total en el año si el cambio mensual hubiese sido el mismo del periodo estudiado durante todos los meses. 
-
-### Desalineación del tipo de cambio efectivo real
-
-la desalineación del tipo de cambio efectivo real representa cuando se desvia esta variable de su tendencia general. La tendencia general se obtuvo aplicando el filtro Hodrick-Prescott con parámetro $\lambda = 14\, 400$. Esta desalineación se calculó mediante la ecuación \ref{ec:tcr-gap}
-
-\begin{equation} \label{ec:tcr-gap}
-tcr^{gap} = \frac{ITCER_t - ITCER_{hp,t}}{ITCER_{hp,t}}
-\end{equation}
-
-### Brecha del producto
-Debido a que el producto interno bruto (PIB) no se mide con la frecuencia necesaria, se emplea el IMAE como proxy del PIB, ya que este índice mide el volumen de producción en un mes. Adicionalmente se desea saber que tanto por encima o por debajo del PIB potencial se encuentra la economía de Guatemala. Para estimar este PIB potencial, de nuevo se aplica el filtro Hodrick-Prescott al IMAE y se extrae su tendencia. La brecha fue calculada mediante la ecuación \ref{ec:y-gap}
-
-\begin{equation} \label{ec:y-gap}
-y^{gap} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
-\end{equation}
-
-
-## Modelo
-Para poder evaluar el efecto passthrough del tipo de cambio en la economía de Guatemala se utilizó un modelo VAR con variables dicotómicas de estacionalidad (o variables dummy) y restricciones de corto plazo recursivas (Cholesky), descrito por @Sims1980. El objetivo de esta última es imponer un orden sobre como responden las variables, empezando por la más exógena y terminando con la más endógena. 
-
-
-
-Siguiendo la notación de @Enders, un modelo VAR(p) estructural con variables dummy está dado por
-
-\begin{equation}\label{ec:varp_e}
-B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_p X_{t-p} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
-\end{equation}
-
-donde $X_t$ es un vector $4 \times 1$ que contiene a las variables $tcr^{gap}$, $y^{gap}$, $\Delta e^{12}$ y $\pi^{12}$; $\Gamma_p$ son matrices de coeficientes de dimension $4 \times 4$, $\Phi$ es la matriz de coeficientes de las variables dummy estacionarias de dimensión $4 \times 11$, $S_t$ es el vector que contiene a las variables dummy $\left( D_{Ene,t}, \ldots, D_{Nov,t} \right)^T$ (sin la dummy para diciembre para evitar multicolinealidad, por lo que diciembre funciona como el mes base) y $\varepsilon_t$ es un vector $4 \times 1$$ de error de predicción con una matriz de covarianza $\mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4$, también llamado vector de choques estructurales.
-
-Sin embargo, como el modelo estructural no puede ser estimado directamente, se recurre a su forma reducida, la cual podemos expresar como
-
-\begin{equation}\label{ec:varp_r}
-X_t = A_0 + \sum_{j=1}^{p} A_p X_{t-p} + \Psi S_t + e_t, \; t = 1,\ldots, T
-\end{equation}
-
-donde $A_0 = B^{-1} \Gamma_0$, $A_p = B^{-1} \Gamma_p$, $\Psi = B^{-1} \Phi$ y $e_t = B^{-1} \varepsilon_t$ y su matriz de covarianza es $\mathbb{E}\left[ e_t e_t^T \right] = \Sigma_e$.
-
-Como el modelo reducido estima 6 parámetros menos que el modelo estructural, se imponen sobre este último 6 restricciones para poder identificarlo a partir de la estimación realizada para el modelo reducido. El esquema de identificación se detalla en la siguiente sección.
-
-
-## Esquema de identificación
-
-Tal como lo expresa @Sims1980, para poder identificar el modelo estructural a partir del modelo reducido, se triangulariza la matriz $\Sigma_e$, lo cual implica que impone un orden en la que las variables reaccionan a las innovaciones.
-
-A la triangularización descrita por Sims, se le conoce como la descomposición de Cholesky. Para realizar esta descomposición partimos de su definición
-
-\begin{equation}
-\Sigma_e = \mathbb{E}\left[ e_t e_t^T \right] 
-\end{equation}
-
-Si $e_t = L \varepsilon_t$, entonces tenemos
-
-\begin{align}
-\Sigma_e &= \mathbb{E} \left[ e_t e_t^T \right] \\
- &= \mathbb{E} \left[ \left( L \varepsilon_t \right) \left( L \varepsilon_t \right)^T \right] \\
- &= L \, \mathbb{E} \left[ \varepsilon_t \varepsilon_t^T \right] \, L^T
-\end{align}
-
-Como asumimos que el vector de choques estructurales no están correlacionados $\left( \mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4 \right)$, entonces lo anterior se puede simplificar a.
-
-\begin{equation} \label{ec:covsigma}
-\Sigma_e = L L^T
-\end{equation}
-
-Como existen varias matrices $L$ que pueden satisfacer la ecuación \ref{ec:covsigma}, entonces se aprovecha su simetría para imponer una restricción específica: $L$ debe ser una matriz triangular inferior. Esto quiere decir que todos valores por encima de la diagonal principal deben ser cero. Esto es:
-
-$$
-L = 
-\begin{pmatrix}
-l_{11} & 0 & 0 & 0 \\
-l_{21} & l_{22} & 0 & 0 \\
-l_{31} & l_{32} & l_{33} & 0 \\
-l_{41} & l_{42} & l_{43} & l_{44}
-\end{pmatrix}
-$$
-
-Lo cual nos lleva a las siguientes soluciones: para los elementos sobre la diagonal principal tenemos
-
-\begin{equation}
-l_{ii} = \sqrt{\sigma_i^2 -\sum_{k=1}^{i-1} l_{ik}^2}
-\end{equation}
-
-y para las soluciones afuera de ésta tenemos
-
-\begin{equation}
-l_{ij} = \frac{\sigma_{ij} -\sum_{k=1}^{j-1} l_{ik} l_{jk}}{l_{jj}}, \; \text{para} \; i > j
-\end{equation}
-
-Para recuperar $\Gamma_0$, $\Gamma_p$ y $\Phi$ observamos que 
-$$
-L = B^{-1}
-$$
-
-Por lo que $\Gamma_0 = L^{-1} A_0$, $\Gamma_p = L^{-1} A_p$ y $\Phi = L^{-1} \Psi$
-
-Como la forma de ordenar las variables importa, ordenan las variables de tal forma que la variable que tome más tiempo en reaccionar es la primera (y por ello las más exógena) y la que tome menos tiempo en reaccionar es la última (y por ello la más endógena). En este trabajo, se ordenó las variables de la siguiente forma: $tcr^{gap}$, $y^{gap}$, $\Delta e^{12}$ y $\pi^{12}$.
-
-
-# Resultados y discusión
-
-
-# Conclusiones
+{{< include _05-conclusiones.qmd >}}
 
 # Referencias
+:::{#refs}
+:::
 
+\clearpage
+\appendix
+{{< include _07-anexos.qmd >}}
