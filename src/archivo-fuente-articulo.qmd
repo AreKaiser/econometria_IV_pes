@@ -33,9 +33,46 @@ format:
 ---
 
 # Introducción
-% estructura: de lo más general a lo más especifico. Terminar con pregunta de investigación que deseamos responder.
+El pass-through cambiario se define conceptualmente como la variación porcentual en los precios internos (por ejemplo, el índice de precios al consumidor o a los precios de importación) resultante de un cambio del uno por ciento en el tipo de cambio entre países exportadores e importadores. Este fenómeno es crucial para el debate sobre políticas monetarias apropiadas y estabilidad macroeconómica. En un escenario de una economía pequeña y abierta, como el caso de Guatemala, el tipo de cambio es un canal de transmisión de choques económicos que afecta la estructura de costos interna de las empresas y, en consecuencia, a los precios del consumidor final. Dada la adopción del esquema de metas explícitas de inflación en Guatemala desde 2005, cuyo objetivo primordial es mantener la estabilidad del nivel general de precios, resulta fundamental para la autoridad monetaria comprender la magnitud (coeficiente de traspaso) y la velocidad con que los movimientos cambiarios se trasladan a los precios internos.
+
+La pregunta central de esta investigación es: ¿cuál es la magnitud y velocidad del pass-through cambiario del tipo de cambio nominal hacia la inflación en Guatemala, de acuerdo con la evidencia de un modelo VAR? El análisis de esta pregunta se enmarca en la teoría que sugiere una relación positiva y significativa entre el entorno inflacionario y la magnitud del pass-through. La literatura muestra que un entorno de baja inflación está asociado con una menor persistencia esperada de los choques de costos y precios, lo que reduce el incentivo de las empresas para ajustar sus precios, lo cual resulta en un menor pass-through. El papel de la credibilidad del Banco Central (Banguat) en el anclaje de las expectativas y la reducción de la persistencia esperada es un elemento teórico clave para interpretar el caso guatemalteco, donde el uso de la tasa de interés líder de la política monetaria busca influir en la meta de inflación bajo el esquema de metas explícitas de inflación.
+
+Para capturar las relaciones dinámicas y posiblemente bidireccionales entre el tipo de cambio y los precios internos, se emplea la metodología de un modelo de vectores autorregresivos (VAR), ya que una regresión de pass-through de una sola ecuación no considera que la inflación doméstica pueda afectar al tipo de cambio. Este enfoque multivariado es necesario para el estudio empírico del pass-through, permitiendo examinar el mecanismo de transmisión a través de las funciones impulso-respuesta (mediante una identificación de choques estructurales), lo que permite medir los impactos en el nivel de precios a lo largo de un horizonte temporal. La contribución principal de este estudio es proveer evidencia empírica sobre la magnitud y velocidad del pass-through en Guatemala, contextualizando sobre el régimen de metas explícitas de inflación para amortiguar los choques cambiarios, lo cual es parte fundamental para la evaluación y conducción de la política monetaria.
+
+El presente trabajo se estructura en cinco secciones. La sección 2 presenta la revisión de literatura relevante sobre los determinantes del pass-through y la conceptualización del mismo. La sección 3 describe los datos y la metodología econométrica empleada, detallando la especificación del modelo VAR. Posteriormente, la sección 4 muestra los resultados empíricos y su discusión. Finalmente, la sección 5 presenta las conclusiones derivadas de los resultados obtenidos y, algunas implicaciones de política económica.
+
 
 # Revisión de la literatura
+
+## Pass-through del tipo de cambio y precios internos
+
+Conceptualmente, @Goldberg1997 definen pass-through como la variación porcentual en los precios de importación denominados en moneda nacional (o doméstica) resultante de un cambio del uno por ciento en el tipo de cambio entre países exportadores e importadores. Por su parte, @Orenos lo conceptualiza como el efecto de la depreciación nominal del tipo de cambio sobre el nivel general de precios internos de una economía.
+
+@Orenos retoma la distinción entre los dos canales mediante los cuales el efecto de pass-through se transmite a los precios internos; estos son el canal directo y el indirecto. El efecto directo o de primer orden se manifiesta de manera secuencial: un choque cambiario modifica inicialmente el precio de los bienes importados (de consumo, insumos o capital), que luego se traslada a la estructura de costos interna de las empresas y, en última instancia, al consumidor final. Por otra parte, el canal indirecto opera a través de la demanda agregada; una depreciación cambiaria abarata los bienes domésticos, aumentando su demanda y generando una presión al alza sobre los precios internos.
+
+El análisis de pass-through se centra en tres características fundamentales: la magnitud (coeficiente de traspaso), la velocidad (el tiempo que tarda el choque en materializarse en los precios) y la simetría (si la respuesta es la misma a la apreciación y a la depreciación).
+
+## Política monetaria, expectativas y actividad económica
+	
+El grado de pass-through (la magnitud), no depende únicamente de factores microeconómicos, sino también de elementos macroeconómicos, siendo el entorno inflacionario un determinante clave.
+
+### El papel de la política monetaria y las expectativas
+
+@Taylor2000 argumenta que el grado de pass-through depende de la persistencia esperada de los choques de costos o precios, siendo una baja inflación asociada con una menor persistencia de la inflación y de los cambios en los costos (como los cambiarios). Por lo tanto, si un choque cambiario es percibido como temporal (baja persistencia), las empresas tienen menos incentivos para ajustar sus precios (por el objetivo de mantener la cuota de mercado), resultando en un menor pass-through. Este entorno de baja inflación, promovido por una política monetaria con credibilidad, actúa como un amortiguador ante choques adversos a los precios. 
+
+En contraste, en escenarios de alta inflación, existe mayor incertidumbre y las empresas tienden a cambiar sus precios con mayor frecuencia, por lo que el traspaso es mayor. @Orenos, sugiere ante la evidencia empírica que la disminución del pass-through en regímenes de baja inflación se debe a un debilitamiento de la covarianza entre el tipo de cambio y los precios.
+
+Bajo lo mencionado sobre los resultados de @Taylor2000, se muestra que el papel de la política monetaria es fundamental para la credibilidad y el anclaje de expectativas. Por lo que, si se generalizan las ideas anteriores: en un entorno de baja incertidumbre, cuando el Banco Central ha logrado consolidar una postura monetaria coherente con la meta de inflación, los agentes económicos confiarán en que la autoridad actuará para mantener dicha meta, haciendo que las expectativas no se desvinculen y que el pass-through sea pequeño.
+
+Otros autores como @Choudhri2006, utilizando una muestra amplia de países, encontraron una asociación positiva y significativa entre el pass-through y la tasa de inflación promedio. Es decir, el pass-through a los precios internos tiende a ser mayor en países con experiencias inflacionarias más altas.
+
+@Campa2005 también proporcionaron evidencia con respecto al tema, sugiriendo que la volatilidad cambiaria y la volatilidad inflacionaria de un país se correlacionan positivamente con el pass-through a los precios de importación, encontrando también que la estabilidad monetaria hace que la política monetaria sea más efectiva al reducir el pass-through.
+
+### El papel de la actividad económica
+
+El ciclo económico influye en la capacidad de las empresas para trasladar los choques de costos a los precios [@Orenos]. El pass-through es mayor en periodos de expansión económica (aumento de la demanda) ya que las empresas tienen mayor facilidad para trasladar los choques a los precios. Por el contrario, en escenarios de recesión (caída de la demanda), la capacidad de trasladar los choques disminuye [@Goldfajn2000]. De esta manera, la fase del ciclo económico puede condicionar el grado del pass-through. 
+
+
 
 # Metodología de investigación
 ## Variables y datos
