@@ -36,11 +36,11 @@ Los datos con los coeficientes estimados se encuentra en el anexo...
 
 ## Diagnóstico del modelo
 
-Una vez estimado el VAR(4), se evaluaron los supuestos básicos del modelo. En primer lugar, se verificó la estabilidad dinámica a partir de los eigenvalores de la matriz de coeficientes. Como se muestra en el Anexo 3, todos los valores propios se localizan estrictamente dentro del círculo unitario, lo que indica que el VAR(4) es estable y que los efectos de un choque se disipan gradualmente en el tiempo. Esto garantiza que las funciones impulso–respuesta converjan y que el sistema no genere trayectorias explosivas.
+Una vez estimado el VAR(4), se evaluaron los supuestos básicos del modelo. Inicialmente, se verificó la estabilidad dinámica a partir de los eigenvalores de la matriz de coeficientes. Como se muestra en el Anexo 3, todos los valores propios se localizan estrictamente dentro del círculo unitario, lo que indica que el VAR(4) es estable y que los efectos de un choque se disipan gradualmente en el tiempo. Esto garantiza que las funciones impulso–respuesta converjan y que el sistema no genere trayectorias explosivas.
 
-En segundo lugar, se aplicó la prueba de Portmanteau multivariante sobre los residuos del VAR, para un número razonable de rezagos, con un p-value = 0.013 no se rechazó la hipótesis nula de ausencia de autocorrelación serial conjunta al 1%, lo que sugiere que el VAR(4) captura adecuadamente la dinámica de las series y no es necesario incorporar rezagos adicionales.
+En cuanto a la especificación, se aplicó la prueba de Portmanteau multivariante sobre los residuos del VAR, para un número razonable de rezagos, con un p-value = 0.013 no se rechazó la hipótesis nula de ausencia de autocorrelación serial conjunta al 1%, lo que sugiere que el VAR(4) captura adecuadamente la dinámica de las series y no es necesario incorporar rezagos adicionales.
 
-En tercer lugar, se evaluó la normalidad de los errores mediante la prueba de Jarque–Bera multivariante; aunque, como es usual en datos macroeconómicos, la hipótesis de normalidad fue rechazada; sin embargo, los histogramas y gráficos Q-Q de los residuos (anexo 4) indican que las distribuciones se aproximan razonablemente a una forma simétrica y sin colas excesivamente pesadas. En síntesis, en conjunto, estos resultados respaldan el uso del modelo VAR estimado para el análisis del pass-through cambiario.
+Finalmente, se evaluó la normalidad de los errores mediante la prueba de Jarque–Bera multivariante; aunque, como es usual en datos macroeconómicos, la hipótesis de normalidad fue rechazada; sin embargo, los histogramas y gráficos Q-Q de los residuos (anexo 4) indican que las distribuciones se aproximan razonablemente a una forma simétrica y sin colas excesivamente pesadas. En síntesis, en conjunto, estos resultados respaldan el uso del modelo VAR estimado para el análisis del pass-through cambiario.
 
 ## Funciones de impulso–respuesta
 
