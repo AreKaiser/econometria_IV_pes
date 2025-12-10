@@ -28,12 +28,11 @@ A continuación se detallan las transformaciones realizadas a estas variables y 
 Con el fin de suavizar el comportamiento de la inflación, se calculó la inflación mensual anualizada como se muestra en la ecuación \ref{ec:inf-men-an}.
 
 \begin{equation} \label{ec:inf-men-an}
-\pi^{(12)} = \left( 1 + \pi_t \right)^{12} - 1
+\Delta \pi_{t} = \left( 1 + \varphi_t \right)^{12} - 1
 \end{equation}
-
 donde:
 $$
-\pi_t = \frac{IPC_t - IPC_{t-1}}{IPC_{t-1}}
+\varphi_t = \frac{IPC_t - IPC_{t-1}}{IPC_{t-1}}
 $$
 
 Esta inflación representa el valor de la inflación en todo el año si la inflación de todos los meses hubiese sido la misma del periodo estudiado.
@@ -43,7 +42,7 @@ Esta inflación representa el valor de la inflación en todo el año si la infla
 Para esta variable también fue necesario suavizar su comportamiento, por lo que se empleo la ecuación \ref{ec:tcn-men-an} para lograr este objetivo.
 
 \begin{equation} \label{ec:tcn-men-an}
-\Delta e^{(12)}_t = \left( 1 + \Delta e_t \right)^{12} - 1
+\Delta tc_{t} = \left( 1 + \Delta e_t \right)^{12} - 1
 \end{equation}
 
 donde:
@@ -58,34 +57,32 @@ Esta variación del tipo de cambio nominal representa el cambio total en el año
 la desalineación del tipo de cambio efectivo real representa cuando se desvia esta variable de su tendencia general. La tendencia general se obtuvo aplicando el filtro Hodrick-Prescott con parámetro $\lambda = 14\, 400$. Esta desalineación se calculó mediante la ecuación \ref{ec:tcr-gap}
 
 \begin{equation} \label{ec:tcr-gap}
-tcr^{gap} = \frac{ITCER_t - ITCER_{hp,t}}{ITCER_{hp,t}}
+tcr_{gap,t} = \frac{ITCER_t - ITCER_{hp,t}}{ITCER_{hp,t}}
 \end{equation}
 
 ### Brecha del producto
 Debido a que el producto interno bruto (PIB) no se mide con la frecuencia necesaria, se emplea el IMAE como proxy del PIB, ya que este índice mide el volumen de producción en un mes. Adicionalmente se desea saber que tanto por encima o por debajo del PIB potencial se encuentra la economía de Guatemala. Para estimar este PIB potencial, de nuevo se aplica el filtro Hodrick-Prescott al IMAE y se extrae su tendencia. La brecha fue calculada mediante la ecuación \ref{ec:y-gap}
 
 \begin{equation} \label{ec:y-gap}
-y^{gap} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
+imae_{gap,t} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
 \end{equation}
 
 
 ## Modelo
 Para poder evaluar el efecto passthrough del tipo de cambio en la economía de Guatemala se utilizó un modelo VAR con variables dicotómicas de estacionalidad (o variables dummy) y restricciones de corto plazo recursivas (Cholesky), descrito por @Sims1980. El objetivo de esta última es imponer un orden sobre como responden las variables, empezando por la más exógena y terminando con la más endógena. 
 
-
-
 Siguiendo la notación de @Enders, un modelo VAR(p) estructural con variables dummy está dado por
 
 \begin{equation}\label{ec:varp_e}
-B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_p X_{t-p} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
+B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_j X_{t-j} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
 \end{equation}
 
-donde $X_t$ es un vector $4 \times 1$ que contiene a las variables $tcr^{gap}$, $y^{gap}$, $\Delta e^{12}$ y $\pi^{12}$; $\Gamma_p$ son matrices de coeficientes de dimension $4 \times 4$, $\Phi$ es la matriz de coeficientes de las variables dummy estacionarias de dimensión $4 \times 11$, $S_t$ es el vector que contiene a las variables dummy $\left( D_{Ene,t}, \ldots, D_{Nov,t} \right)^T$ (sin la dummy para diciembre para evitar multicolinealidad, por lo que diciembre funciona como el mes base) y $\varepsilon_t$ es un vector $4 \times 1$$ de error de predicción con una matriz de covarianza $\mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4$, también llamado vector de choques estructurales.
+donde $X_t$ es un vector $4 \times 1$ que contiene a las variables $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_{12}$ y $\Delta \pi_{t}$; $\Gamma_p$ son matrices de coeficientes de dimension $4 \times 4$, $\Phi$ es la matriz de coeficientes de las variables dummy estacionarias de dimensión $4 \times 11$, $S_t$ es el vector que contiene a las variables dummy $\left( D_{Ene,t}, \ldots, D_{Nov,t} \right)^T$ (sin la dummy para diciembre para evitar multicolinealidad, por lo que diciembre funciona como el mes base) y $\varepsilon_t$ es un vector $4 \times 1$$ de error de predicción con una matriz de covarianza $\mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4$, también llamado vector de choques estructurales.
 
 Sin embargo, como el modelo estructural no puede ser estimado directamente, se recurre a su forma reducida, la cual podemos expresar como
 
 \begin{equation}\label{ec:varp_r}
-X_t = A_0 + \sum_{j=1}^{p} A_p X_{t-p} + \Psi S_t + e_t, \; t = 1,\ldots, T
+X_t = A_0 + \sum_{j=1}^{p} A_j X_{t-j} + \Psi S_t + e_t, \; t = 1,\ldots, T
 \end{equation}
 
 donde $A_0 = B^{-1} \Gamma_0$, $A_p = B^{-1} \Gamma_p$, $\Psi = B^{-1} \Phi$ y $e_t = B^{-1} \varepsilon_t$ y su matriz de covarianza es $\mathbb{E}\left[ e_t e_t^T \right] = \Sigma_e$.
@@ -148,4 +145,4 @@ $$
 
 Por lo que $\Gamma_0 = L^{-1} A_0$, $\Gamma_p = L^{-1} A_p$ y $\Phi = L^{-1} \Psi$
 
-Como la forma de ordenar las variables importa, ordenan las variables de tal forma que la variable que tome más tiempo en reaccionar es la primera (y por ello las más exógena) y la que tome menos tiempo en reaccionar es la última (y por ello la más endógena). En este trabajo, se ordenó las variables de la siguiente forma: $tcr^{gap}$, $y^{gap}$, $\Delta e^{12}$ y $\pi^{12}$.
+Como la forma de ordenar las variables importa, ordenan las variables de tal forma que la variable que tome más tiempo en reaccionar es la primera (y por ello las más exógena) y la que tome menos tiempo en reaccionar es la última (y por ello la más endógena). En este trabajo, se ordenó las variables de la siguiente forma: $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_t$ y $\Delta \pi_t$.
