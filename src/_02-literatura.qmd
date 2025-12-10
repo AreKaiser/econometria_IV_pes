@@ -6,11 +6,11 @@ Conceptualmente, @Goldberg1997 definen pass-through como la variación porcentua
 
 @Orenos retoma la distinción entre los dos canales mediante los cuales el efecto de pass-through se transmite a los precios internos; estos son el canal directo y el indirecto. El efecto directo o de primer orden se manifiesta de manera secuencial: un choque cambiario modifica inicialmente el precio de los bienes importados (de consumo, insumos o capital), que luego se traslada a la estructura de costos interna de las empresas y, en última instancia, al consumidor final. Por otra parte, el canal indirecto opera a través de la demanda agregada; una depreciación cambiaria abarata los bienes domésticos, aumentando su demanda y generando una presión al alza sobre los precios internos.
 
-El análisis de pass-through se centra en tres características fundamentales: la magnitud (coeficiente de traspaso) y la simetría (si la respuesta es la misma a la apreciación y a la depreciación).
+El análisis de pass-through se centra en dos características fundamentales: la magnitud (coeficiente de traspaso) y la simetría (si la respuesta es la misma a la apreciación y a la depreciación).
 
 ## Política monetaria, expectativas y actividad económica
 	
-El grado de pass-through (la magnitud), no depende únicamente de factores microeconómicos, sino también de elementos macroeconómicos, siendo el entorno inflacionario un determinante clave.
+El grado de pass-through (la magnitud) depende principalmente de elementos macroeconómicos, siendo el entorno inflacionario un determinante clave.
 
 ### El papel de la política monetaria y las expectativas
 

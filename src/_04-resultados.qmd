@@ -36,11 +36,11 @@ Los datos con los coeficientes estimados se encuentra en el anexo \ref{tab:var_c
 
 ## Diagnóstico del modelo
 
-Una vez estimado el VAR(4), se evaluaron los supuestos básicos del modelo. Inicialmente, se verificó la estabilidad dinámica a partir de los eigenvalores de la matriz de coeficientes. Como se muestra en el anexo @fig-circulo-unitario, todos los valores propios se localizan estrictamente dentro del círculo unitario, lo que indica que el VAR(4) es estable y que los efectos de un choque se disipan gradualmente en el tiempo. Esto garantiza que las funciones impulso–respuesta converjan y que el sistema no genere trayectorias explosivas.
+Una vez estimado el VAR(4), se evaluaron los supuestos básicos del modelo. Inicialmente, se verificó la estabilidad dinámica a partir de los eigenvalores de la matriz de coeficientes. Como se muestra en el anexo [-@fig-circulo-unitario], todos los valores propios se localizan estrictamente dentro del círculo unitario, lo que indica que el VAR(4) es estable y que los efectos de un choque se disipan gradualmente en el tiempo. Esto garantiza que las funciones impulso–respuesta converjan y que el sistema no genere trayectorias explosivas.
 
 En cuanto a la especificación, se aplicó la prueba de Portmanteau multivariante sobre los residuos del VAR, para un número razonable de rezagos, con un p-value = 0.013 no se rechazó la hipótesis nula de ausencia de autocorrelación serial conjunta al 1%, lo que sugiere que el VAR(4) captura adecuadamente la dinámica de las series y no es necesario incorporar rezagos adicionales.
 
-Finalmente, se evaluó la normalidad de los errores mediante la prueba de Jarque–Bera multivariante; aunque, como es usual en datos macroeconómicos, la hipótesis de normalidad fue rechazada; sin embargo, los histogramas y gráficos Q-Q de los residuos (anexo @fig-tests-normalidad) indican que las distribuciones se aproximan razonablemente a una forma simétrica y sin colas excesivamente pesadas. En síntesis, en conjunto, estos resultados respaldan el uso del modelo VAR estimado para el análisis del pass-through cambiario.
+Finalmente, se evaluó la normalidad de los errores mediante la prueba de Jarque–Bera multivariante; aunque, como es usual en datos macroeconómicos, la hipótesis de normalidad fue rechazada; sin embargo, los histogramas y gráficos Q-Q de los residuos (anexo [-@fig-tests-normalidad]) indican que las distribuciones se aproximan razonablemente a una forma simétrica y sin colas excesivamente pesadas. En síntesis, en conjunto, estos resultados respaldan el uso del modelo VAR estimado para el análisis del pass-through cambiario.
 
 ## Funciones de impulso–respuesta
 
@@ -52,7 +52,7 @@ Las funciones impulso–respuesta se estimaron mediante bootstrapping, en cada r
 
 ### Efecto pass-through del tipo de cambio nominal 
 
-La Figura @fig-choque-tc-sobre-ipc muestra la función impulso–respuesta de la inflación ante un choque en la variación del tipo de cambio nominal. El impulso corresponde a una desviación estándar positiva en $\Delta tc$, que en la definición utilizada equivale a un shock positivo (depreciación) del tipo de cambio nominal.
+La figura [-@fig-choque-tc-sobre-ipc] muestra la función impulso–respuesta de la inflación ante un choque en la variación del tipo de cambio nominal. El impulso corresponde a una desviación estándar positiva en $\Delta tc$, que en la definición utilizada equivale a un shock positivo (depreciación) del tipo de cambio nominal.
 
 Como se observa el choque sobre impacto genera un aumento inmediato de la inflación, del orden de 1,5 puntos porcentuales en términos anualizados, con un intervalo de confianza que se sitúa claramente por encima de cero. Este resultado indica que una depreciación nominal inesperada se traslada de manera casi instantánea, aunque de magnitud acotada, a los precios al consumidor. No obstante, la respuesta de la inflación cae rápidamente; de hecho, entre los meses 2 y 6 la respuesta puntual oscila levemente en torno a cero, con valores pequeños y no significativamente distintos de cero, para luego mostrar únicamente un efecto residual de muy baja magnitud hacia el final del horizonte de doce meses.
 
@@ -68,7 +68,7 @@ Función de impulso respuesta de la inflación a un choque de tipo de cambio nom
 
 ### Choque del tipo de cambio real sobre la inflación
 
-También resulta relevante analizar los efectos de un choque de depreciación real (aumento de $tcr_{gap,t}$) sobre la inflación. La Figura @fig-choque-tcr-sobre-ipc muestra la función impulso–respuesta correspondiente, en donde se observa que, en el choque sobre impacto, la respuesta de la inflación es claramente negativa y las bandas de confianza se ubican por debajo de cero, lo que indica un efecto deflacionario estadísticamente significativo en el muy corto plazo. No obstante, este efecto se reduce rápidamente.
+También resulta relevante analizar los efectos de un choque de depreciación real (aumento de $tcr_{gap,t}$) sobre la inflación. La figura [-@fig-choque-tcr-sobre-ipc] muestra la función impulso–respuesta correspondiente, en donde se observa que, en el choque sobre impacto, la respuesta de la inflación es claramente negativa y las bandas de confianza se ubican por debajo de cero, lo que indica un efecto deflacionario estadísticamente significativo en el muy corto plazo. No obstante, este efecto se reduce rápidamente.
 
 A partir de los 2–3 meses, la respuesta de la inflación se torna positiva y se mantiene en positivo durante varios meses, con valores que en diversos horizontes se sitúan por encima de cero de manera estadísticamente significativa, antes de converger gradualmente hacia su nivel de equilibrio. En este sentido, esta trayectoria sugiere que el mecanismo de pass-through es positivo pero retardado y de magnitud acotada. Es decir, en el muy corto plazo, la depreciación real puede verse compensada por otros canales presentes en el sistema —como la reacción simultánea de la política monetaria, la rigidez de ciertos precios o la lenta actualización de precios—, de modo que el impacto inicial sobre la inflación es negativo y transitorio.
 
@@ -84,7 +84,7 @@ Función de impulso respuesta de la inflación a un choque de tipo de cambio rea
 
 ### Respuesta del tipo de cambio nominal a un choque real
 
-La figura 4 presenta la respuesta del tipo de cambio nominal ante un choque ante un choque en la brecha del tipo de cambio real. Como se observa, el choque sobre impacto es claramente positivo: el tipo de cambio nominal se deprecia de manera significativa en el periodo del choque, con una respuesta máxima cercana a 3–4 puntos porcentuales, y las bandas de confianza se sitúan completamente por encima de cero, este comportamiento es coherente con la idea de que una depreciación real está asociada, en primera instancia, a un movimiento depreciatorio del tipo de cambio nominal.
+La figura [-@fig-choque-tcr-sobre-tc] presenta la respuesta del tipo de cambio nominal ante un choque ante un choque en la brecha del tipo de cambio real. Como se observa, el choque sobre impacto es claramente positivo: el tipo de cambio nominal se deprecia de manera significativa en el periodo del choque, con una respuesta máxima cercana a 3–4 puntos porcentuales, y las bandas de confianza se sitúan completamente por encima de cero, este comportamiento es coherente con la idea de que una depreciación real está asociada, en primera instancia, a un movimiento depreciatorio del tipo de cambio nominal.
 
 :::{#fig-choque-tcr-sobre-tc}
 ![](imagenes/irf_impacto_tcr_sobre_tc.png){width=90%}
