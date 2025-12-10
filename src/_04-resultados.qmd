@@ -4,7 +4,7 @@ En este apartado se muestran los resultados de las estimaciones realizadas para 
 
 ## Análisis preliminar de las series
 
-Antes de proceder con el modelo, se analizó el comportamiento de las series de datos; la figura @fig-hechos-estilizados presenta la evolución de las cuatro variables consideradas en el modelo: la brecha del tipo de cambio real ($tcr_{gap,t}$), la brecha del índice mensual de actividad económica ($imae_{gap,t}$), la variación mensual anualizada del tipo de cambio nominal ($\Delta tc_t$) y la variación mensual anualizada del índice de precios al consumidor ($\Delta ipc_t$), para el período enero de 2001 a agosto de 2025.
+Antes de proceder con el modelo, se analizó el comportamiento de las series de datos; la @fig-hechos-estilizados presenta la evolución de las cuatro variables consideradas en el modelo: la brecha del tipo de cambio real ($tcr_{gap,t}$), la brecha del índice mensual de actividad económica ($imae_{gap,t}$), la variación mensual anualizada del tipo de cambio nominal ($\Delta tc_t$) y la variación mensual anualizada del índice de precios al consumidor ($\Delta ipc_t$), para el período enero de 2001 a agosto de 2025.
 
 :::{#fig-hechos-estilizados}
 ![](imagenes/hechos_estilizados_variables.png){width=90%}
@@ -20,27 +20,27 @@ Visualmente, las cuatro series de tiempo muestran media y varianza constante, lo
 
 Previo a la estimación el modelo VAR se verificó la estacionariedad de las series, para lo cual se aplicó la prueba de Dickey–Fuller aumentada (ADF) con intercepto y selección automática de rezagos mediante el criterio de información de Akaike, de acuerdo con la especificación descrita en la sección metodológica.
 
-Los resultados se resumen en el anexo 1. En todos los casos, el estadístico ADF es más negativo que el valor crítico al 1 % (o 5 %, según corresponda), por lo que se rechaza la hipótesis nula de raíz unitaria. Esto sugiere que $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_t$ y $\Delta ipc_t$ pueden tratarse como procesos estacionarios en niveles, condición necesaria para la estimación de un VAR en niveles.
+Los resultados se resumen en el anexo \ref{tab:adf}. En todos los casos, el estadístico ADF es más negativo que el valor crítico al 1 % (o 5 %, según corresponda), por lo que se rechaza la hipótesis nula de raíz unitaria. Esto sugiere que $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_t$ y $\Delta ipc_t$ pueden tratarse como procesos estacionarios en niveles, condición necesaria para la estimación de un VAR en niveles.
 
 ## Selección del orden del VAR y estimación
 
 Con las cuatro series estacionarias, se procedió a determinar el número óptimo de rezagos del modelo VAR, dado que se trabaja con información mensual y se identificó un componente estacional en la brecha del IMAE, la selección se realizó permitiendo hasta 24 rezagos e incluyendo una estructura estacional de 12 meses en la rutina de selección, de manera consistente con la especificación final del modelo.
 
-Se estimaron modelos con distintos órdenes de rezago y se aplicaron los criterios de información de Akaike (AIC), Schwarz (SC) y Hannan–Quinn (HQ). Tal como se resume en el Anexo 2, el AIC sugiere un modelo con cuatro rezagos, mientras que los criterios más parsimoniosos (SC y HQ) recomiendan un número menor. No obstante, siguiendo la práctica habitual en la literatura sobre pass-through cambiario y priorizando una adecuada captura de la dinámica de corto plazo, se adoptó finalmente un VAR(4) con término constante y dummies estacionales mensuales. De acuerdo a la ecuación \ref{ec:varp_r} el modelo estimado puede escribirse de forma compacta como:
+Se estimaron modelos con distintos órdenes de rezago y se aplicaron los criterios de información de Akaike (AIC), Schwarz (SC) y Hannan–Quinn (HQ). Tal como se resume en el anexo \ref{tab:var_order}, el AIC sugiere un modelo con cuatro rezagos, mientras que los criterios más parsimoniosos (SC y HQ) recomiendan un número menor. No obstante, siguiendo la práctica habitual en la literatura sobre pass-through cambiario y priorizando una adecuada captura de la dinámica de corto plazo, se adoptó finalmente un VAR(4) con término constante y dummies estacionales mensuales. De acuerdo a la ecuación \ref{ec:varp_r} el modelo estimado puede escribirse de forma compacta como:
 
 \begin{equation}\label{ec:var4r_est}
 \hat{X}_t = \hat{A}_0 + \sum_{j=1}^{4} \hat{A}_j X_{t-j} + \hat{\Psi} S_t 
 \end{equation}
 
-Los datos con los coeficientes estimados se encuentra en el anexo xxx.
+Los datos con los coeficientes estimados se encuentra en el anexo \ref{tab:var_coef_completo}.
 
 ## Diagnóstico del modelo
 
-Una vez estimado el VAR(4), se evaluaron los supuestos básicos del modelo. Inicialmente, se verificó la estabilidad dinámica a partir de los eigenvalores de la matriz de coeficientes. Como se muestra en el Anexo 3, todos los valores propios se localizan estrictamente dentro del círculo unitario, lo que indica que el VAR(4) es estable y que los efectos de un choque se disipan gradualmente en el tiempo. Esto garantiza que las funciones impulso–respuesta converjan y que el sistema no genere trayectorias explosivas.
+Una vez estimado el VAR(4), se evaluaron los supuestos básicos del modelo. Inicialmente, se verificó la estabilidad dinámica a partir de los eigenvalores de la matriz de coeficientes. Como se muestra en el anexo @fig-circulo-unitario, todos los valores propios se localizan estrictamente dentro del círculo unitario, lo que indica que el VAR(4) es estable y que los efectos de un choque se disipan gradualmente en el tiempo. Esto garantiza que las funciones impulso–respuesta converjan y que el sistema no genere trayectorias explosivas.
 
 En cuanto a la especificación, se aplicó la prueba de Portmanteau multivariante sobre los residuos del VAR, para un número razonable de rezagos, con un p-value = 0.013 no se rechazó la hipótesis nula de ausencia de autocorrelación serial conjunta al 1%, lo que sugiere que el VAR(4) captura adecuadamente la dinámica de las series y no es necesario incorporar rezagos adicionales.
 
-Finalmente, se evaluó la normalidad de los errores mediante la prueba de Jarque–Bera multivariante; aunque, como es usual en datos macroeconómicos, la hipótesis de normalidad fue rechazada; sin embargo, los histogramas y gráficos Q-Q de los residuos (anexo 4) indican que las distribuciones se aproximan razonablemente a una forma simétrica y sin colas excesivamente pesadas. En síntesis, en conjunto, estos resultados respaldan el uso del modelo VAR estimado para el análisis del pass-through cambiario.
+Finalmente, se evaluó la normalidad de los errores mediante la prueba de Jarque–Bera multivariante; aunque, como es usual en datos macroeconómicos, la hipótesis de normalidad fue rechazada; sin embargo, los histogramas y gráficos Q-Q de los residuos (anexo @fig-tests-normalidad) indican que las distribuciones se aproximan razonablemente a una forma simétrica y sin colas excesivamente pesadas. En síntesis, en conjunto, estos resultados respaldan el uso del modelo VAR estimado para el análisis del pass-through cambiario.
 
 ## Funciones de impulso–respuesta
 
