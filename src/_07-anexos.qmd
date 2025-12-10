@@ -111,3 +111,45 @@ const             &  0.0224710 & 0.0055012 &  4.087 & 5.80e-05 \\
 {\footnotesize Fuente: elaboración propia a partir de la estimación del modelo VAR.}
 \end{table*}
 
+::: {#fig-fevd layout-ncol=2 fig-env="figure*"}
+
+![Descomposición para $\Delta ipc$](imagenes/Desc_delta_ipc.png){#fig-fevd-ipc}
+
+![Descomposición para $\Delta tc$](imagenes/Desc_delta_tc.png){#fig-fevd-tc}
+
+![Descomposición para $imae_{gap}$](imagenes/Desc_imae.png){#fig-fevd-imae}
+
+![Descomposición para $tcr_{gap}$](imagenes/Desc_tcr.png){#fig-fevd-tcr}
+
+Descomposición de la varianza de los errores de pronóstico
+\
+\textbf{Fuente:} Elaboración propia.
+:::
+
+:::{#fig-irf-completo-pre-covid fig-env="figure*"}
+![](imagenes/irf_completo_antes_covid.jpeg){width=90%}
+
+Matriz de Funciones de Impulso-Respuesta (IRF) para la serie antes del Covid.
+\
+\textbf{Fuente:} Elaboración propia
+:::
+
+::: {#fig-fevd-pre-covid layout-ncol=2 fig-env="figure*"}
+
+![Descomposición para $\Delta ipc$](imagenes/Desc_delta_ipc_pre_covid.jpeg){#fig-fevd-ipc-pre}
+
+![Descomposición para $\Delta tc$](imagenes/Desc_delta_tc_pre_covid.jpeg){#fig-fevd-tc-pre}
+
+![Descomposición para $imae_{gap}$](imagenes/Desc_imae_pre_covid.jpeg){#fig-fevd-imae-pre}
+
+![Descomposición para $tcr_{gap}$](imagenes/Desc_tcr_pre_covid.jpeg){#fig-fevd-tcr-pre}
+
+Descomposición de la varianza de los errores de pronóstico para la serie antes del covid
+\
+\textbf{Fuente:} Elaboración propia.
+:::
+
+
+
+
+

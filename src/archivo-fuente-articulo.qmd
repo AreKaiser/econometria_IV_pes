@@ -56,4 +56,5 @@ format:
 
 \clearpage
 \appendix
+\onecolumn
 {{< include _07-anexos.qmd >}}
