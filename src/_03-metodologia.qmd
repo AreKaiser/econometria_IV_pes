@@ -1,4 +1,7 @@
 # Metodología de investigación
+
+En este estudio se utilizaron datos tomados del Banco de Guatemala y de la Secretaría Ejecutiva del Consejo Monetario Centroamericano, que abarcaron el periodo que inicia en enero 2001 y termina en septiembre 2025.
+
 ## Variables y datos
 Para realizar la modelación del fenómeno fue necesario construir variables que fuesen estacionarias dado que los datos brutos no poseen esta propiedad. Dicha construcción se realizó a partir de las variables crudas que se muestran en la tabla \ref{tab:variables}.
 
@@ -21,7 +24,7 @@ Tipo de cambio efectivo real (ITCER) & 297 & mensual & SECMCA \\
 \end{table*}
 ```
 
-A continuación se detallan las transformaciones realizadas a estas variables y las variables resultantes, metodología que fue tomada de @CarpioSam2007, y las cuales fueron empleadas en el modelo VAR.
+A continuación se detallan las transformaciones realizadas a estas variables y los valores resultantes, metodología que fue tomada de @CarpioSam2007, y las cuales fueron empleadas en el modelo VAR.
 
 ### Inflación mensual anualizada
 
@@ -35,11 +38,11 @@ $$
 \varphi_t = \frac{IPC_t - IPC_{t-1}}{IPC_{t-1}}
 $$
 
-Esta inflación representa el valor de la inflación en todo el año si la inflación de todos los meses hubiese sido la misma del periodo estudiado.
+Esta expresión representa el valor de la inflación si en 12 meses consecutivos ésta hubiese sido constante.
 
 ### Variación mensual anualizada del tipo de cambio nominal
 
-Para esta variable también fue necesario suavizar su comportamiento, por lo que se empleo la ecuación \ref{ec:tcn-men-an} para lograr este objetivo.
+Para esta variable también fue necesario suavizar su comportamiento, por lo que se empleó la ecuación \ref{ec:tcn-men-an} para lograr este objetivo.
 
 \begin{equation} \label{ec:tcn-men-an}
 \Delta tc_{t} = \left( 1 + \Delta e_t \right)^{12} - 1
@@ -50,18 +53,18 @@ $$
 \Delta e_t = \frac{TCN_t - TCN_{t-1}}{TCN_{t-1}}
 $$
 
-Esta variación del tipo de cambio nominal representa el cambio total en el año si el cambio mensual hubiese sido el mismo del periodo estudiado durante todos los meses. 
+Esta expresión representa el valor de la variación del tipo de cambio nominal si en 12 meses consecutivos ésta hubiese sido constante.
 
 ### Desalineación del tipo de cambio efectivo real
 
-la desalineación del tipo de cambio efectivo real representa cuando se desvia esta variable de su tendencia general. La tendencia general se obtuvo aplicando el filtro Hodrick-Prescott con parámetro $\lambda = 14\, 400$. Esta desalineación se calculó mediante la ecuación \ref{ec:tcr-gap}
+La desalineación del tipo de cambio efectivo real representa el desvío de esta variable respecto de su tendencia. La tendencia se obtuvo aplicando el filtro Hodrick-Prescott con parámetro $\lambda = 14,\, 400$. Esta desalineación se calculó mediante la ecuación \ref{ec:tcr-gap}:
 
 \begin{equation} \label{ec:tcr-gap}
 tcr_{gap,t} = \frac{ITCER_t - ITCER_{hp,t}}{ITCER_{hp,t}}
 \end{equation}
 
 ### Brecha del producto
-Debido a que el producto interno bruto (PIB) no se mide con la frecuencia necesaria, se emplea el IMAE como proxy del PIB, ya que este índice mide el volumen de producción en un mes. Adicionalmente se desea saber que tanto por encima o por debajo del PIB potencial se encuentra la economía de Guatemala. Para estimar este PIB potencial, de nuevo se aplica el filtro Hodrick-Prescott al IMAE y se extrae su tendencia. La brecha fue calculada mediante la ecuación \ref{ec:y-gap}
+Debido a que el Producto Interno Bruto (PIB) no se mide con la frecuencia necesaria, se emplea el IMAE como proxy del PIB, ya que este índice mide el volumen de producción en un mes. Adicionalmente se desea saber que tanto por encima o por debajo del PIB potencial se encuentra la economía de Guatemala. Para estimar este PIB potencial, de nuevo se aplica el filtro Hodrick-Prescott al IMAE y se extrae su tendencia. La brecha fue calculada mediante la ecuación \ref{ec:y-gap}:
 
 \begin{equation} \label{ec:y-gap}
 imae_{gap,t} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
@@ -71,15 +74,15 @@ imae_{gap,t} = \frac{IMAE_t - IMAE_{hp,t}}{IMAE_{hp,t}}
 ## Modelo
 Para poder evaluar el efecto passthrough del tipo de cambio en la economía de Guatemala se utilizó un modelo VAR con variables dicotómicas de estacionalidad (o variables dummy) y restricciones de corto plazo recursivas (Cholesky), descrito por @Sims1980. El objetivo de esta última es imponer un orden sobre como responden las variables, empezando por la más exógena y terminando con la más endógena. 
 
-Siguiendo la notación de @Enders, un modelo VAR(p) estructural con variables dummy está dado por
+Siguiendo la notación de @Enders, un modelo VAR(p) estructural con variables dummy está dado por:
 
 \begin{equation}\label{ec:varp_e}
 B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_j X_{t-} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
 \end{equation}
 
-donde $X_t$ es un vector $4 \times 1$ que contiene a las variables $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_{12}$ y $\Delta \pi_{t}$; $\Gamma_p$ son matrices de coeficientes de dimension $4 \times 4$, $\Phi$ es la matriz de coeficientes de las variables dummy estacionarias de dimensión $4 \times 11$, $S_t$ es el vector que contiene a las variables dummy $\left( D_{Ene,t}, \ldots, D_{Nov,t} \right)^T$ (sin la dummy para diciembre para evitar multicolinealidad, por lo que diciembre funciona como el mes base) y $\varepsilon_t$ es un vector $4 \times 1$$ de error de predicción con una matriz de covarianza $\mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4$, también llamado vector de choques estructurales.
+donde $X_t$ es un vector $4 \times 1$ que contiene a las variables $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_{12}$ y $\Delta \pi_{t}$; $\Gamma_p$ son matrices de coeficientes de dimension $4 \times 4$, $\Phi$ es la matriz de coeficientes de las variables dummy estacionarias de dimensión $4 \times 11$, $S_t$ es el vector que contiene a las variables dummy $\left( D_{Ene,t}, \ldots, D_{Nov,t} \right)^T$ (sin la dummy para diciembre para evitar multicolinealidad, por lo que diciembre funciona como el mes base) y $\varepsilon_t$ es un vector $4 \times 1$ de error de predicción con una matriz de covarianza $\mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4$, también llamado vector de choques estructurales.
 
-Sin embargo, como el modelo estructural no puede ser estimado directamente, se recurre a su forma reducida, la cual podemos expresar como
+Sin embargo, como el modelo estructural no puede ser estimado directamente, se recurre a su forma reducida, la cual podemos expresar como:
 
 \begin{equation}\label{ec:varp_r}
 X_t = A_0 + \sum_{j=1}^{p} A_j X_{t-j} + \Psi S_t + e_t, \; t = 1,\ldots, T
@@ -102,50 +105,50 @@ A la triangularización descrita por Sims, se le conoce como la descomposición 
 \Sigma_e = \mathbb{E}\left[ e_t e_t^T \right] 
 \end{equation}
 
-Si $e_t = L \varepsilon_t$, entonces tenemos
+Si $e_t = P \varepsilon_t$, entonces tenemos
 
 \begin{align}
 \Sigma_e &= \mathbb{E} \left[ e_t e_t^T \right] \\
- &= \mathbb{E} \left[ \left( L \varepsilon_t \right) \left( L \varepsilon_t \right)^T \right] \\
- &= L \, \mathbb{E} \left[ \varepsilon_t \varepsilon_t^T \right] \, L^T
+ &= \mathbb{E} \left[ \left( P \varepsilon_t \right) \left( P \varepsilon_t \right)^T \right] \\
+ &= P \, \mathbb{E} \left[ \varepsilon_t \varepsilon_t^T \right] \, P^T
 \end{align}
 
 Como asumimos que el vector de choques estructurales no están correlacionados $\left( \mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4 \right)$, entonces lo anterior se puede simplificar a.
 
 \begin{equation} \label{ec:covsigma}
-\Sigma_e = L L^T
+\Sigma_e = P P^T
 \end{equation}
 
-Como existen varias matrices $L$ que pueden satisfacer la ecuación \ref{ec:covsigma}, entonces se aprovecha su simetría para imponer una restricción específica: $L$ debe ser una matriz triangular inferior. Esto quiere decir que todos valores por encima de la diagonal principal deben ser cero. Esto es:
+Como existen varias matrices $P$ que pueden satisfacer la ecuación \ref{ec:covsigma}, entonces se aprovecha su simetría para imponer una restricción específica: $P$ debe ser una matriz triangular inferior. Esto quiere decir que todos los valores por encima de la diagonal principal deben ser cero. Esto es:
 
 $$
-L = 
+P = 
 \begin{pmatrix}
-l_{11} & 0 & 0 & 0 \\
-l_{21} & l_{22} & 0 & 0 \\
-l_{31} & l_{32} & l_{33} & 0 \\
-l_{41} & l_{42} & l_{43} & l_{44}
+p_{11} & 0 & 0 & 0 \\
+p_{21} & p_{22} & 0 & 0 \\
+p_{31} & p_{32} & p_{33} & 0 \\
+p_{41} & p_{42} & p_{43} & p_{44}
 \end{pmatrix}
 $$
 
 Lo cual nos lleva a las siguientes soluciones: para los elementos sobre la diagonal principal tenemos
 
 \begin{equation}
-l_{ii} = \sqrt{\sigma_i^2 -\sum_{k=1}^{i-1} l_{ik}^2}
+p_{ii} = \sqrt{\sigma_i^2 -\sum_{k=1}^{i-1} p_{ik}^2}
 \end{equation}
 
 y para las soluciones afuera de ésta tenemos
 
 \begin{equation}
-l_{ij} = \frac{\sigma_{ij} -\sum_{k=1}^{j-1} l_{ik} l_{jk}}{l_{jj}}, \; \text{para} \; i > j
+p_{ij} = \frac{\sigma_{ij} -\sum_{k=1}^{j-1} p_{ik} p_{jk}}{p_{jj}}, \; \text{para} \; i > j
 \end{equation}
 
 Para recuperar $\Gamma_0$, $\Gamma_p$ y $\Phi$ observamos que 
 $$
-L = B^{-1}
+P = B^{-1}
 $$
 
-Por lo que $\Gamma_0 = L^{-1} A_0$, $\Gamma_p = L^{-1} A_p$ y $\Phi = L^{-1} \Psi$
+Por lo que $\Gamma_0 = P^{-1} A_0$, $\Gamma_p = P^{-1} A_p$ y $\Phi = P^{-1} \Psi$
 
 Como la forma de ordenar las variables importa, ordenan las variables de tal forma que la variable que tome más tiempo en reaccionar es la primera (y por ello las más exógena) y la que tome menos tiempo en reaccionar es la última (y por ello la más endógena). En este trabajo, se ordenó las variables de la siguiente forma: $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_t$ y $\Delta \pi_t$. Este orden refleja la estructura de una pequeña economía abierta en frecuencia mensual: el tipo de cambio real, se interpreta como una variable principalmente determinada por condiciones externas de competitividad y demanda mundial, por lo que no responde de manera contemporánea a choques domésticos, mientras que la actividad puede reaccionar dentro del mes a cambios en los precios relativos externos, medidos por el tipo de cambio real, sin embargo no ajusta instantáneamente a perturbaciones puramente nominales en el tipo de cambio ni en la inflación. 
 
