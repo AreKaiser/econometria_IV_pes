@@ -4,7 +4,7 @@ En este apartado se muestran los resultados de las estimaciones realizadas para 
 
 ## Análisis preliminar de las series
 
-Antes de proceder con el modelo, se analizó el comportamiento de las series de datos; la Figura 1 presenta la evolución de las cuatro variables consideradas en el modelo: la brecha del tipo de cambio real ($tcr_{gap,t}$), la brecha del índice mensual de actividad económica ($imae_{gap,t}$), la variación mensual anualizada del tipo de cambio nominal ($\Delta tc_t$) y la variación mensual anualizada del índice de precios al consumidor ($\Delta ipc_t$), para el período enero de 2001 a agosto de 2025.
+Antes de proceder con el modelo, se analizó el comportamiento de las series de datos; la figura @fig-hechos-estilizados presenta la evolución de las cuatro variables consideradas en el modelo: la brecha del tipo de cambio real ($tcr_{gap,t}$), la brecha del índice mensual de actividad económica ($imae_{gap,t}$), la variación mensual anualizada del tipo de cambio nominal ($\Delta tc_t$) y la variación mensual anualizada del índice de precios al consumidor ($\Delta ipc_t$), para el período enero de 2001 a agosto de 2025.
 
 :::{#fig-hechos-estilizados}
 ![](imagenes/hechos_estilizados_variables.png){width=90%}
@@ -47,6 +47,86 @@ Finalmente, se evaluó la normalidad de los errores mediante la prueba de Jarque
 Una vez validado el modelo, se analizó la transmisión de un shock en el tipo de cambio nominal hacia la inflación y el resto de variables endógenas, cuyos resultados se presentan en esta sección.
 
 En este sentido, para analizar los efectos de los choques cambiarios sobre la inflación se recurrió a las funciones impulso–respuesta derivadas del modelo VAR descrito en la sección metodológica; en particular, el interés se centra en la respuesta de $\Delta ipc_t$ ante una perturbación no anticipada en $\Delta tc_t$, así como en la reacción de $tcr_{gap,t}$ e $imae_{gap,t}$. Estas funciones permiten trazar, para cada horizonte h, la trayectoria esperada de las variables endógenas ante un shock unitario inicial, manteniendo constante la información disponible en el momento del shock.
+
+Las funciones impulso–respuesta se estimaron mediante bootstrapping, en cada réplica se generó una muestra artificial preservando la estructura dinámica del modelo, se reestimaron los parámetros y se recalcularon las respuestas ante un shock en las distintas variables hasta un horizonte de 12 meses.  Este procedimiento se repitió $B$=500 veces y, para cada horizonte, se obtuvo la mediana de las $respuestas junto con los percentiles 2.5 y 97.5, que se utilizaron para construir bandas de confianza al 95 % alrededor de las funciones impulso–respuesta reportadas en esta sección; en este sentido, la identificación de los shocks se realizó mediante una descomposición de Cholesky, de acuerdo con el esquema descrito en la sección metodológica.
+
+### Efecto pass-through del tipo de cambio nominal 
+
+La Figura @fig-choque-tc-sobre-ipc muestra la función impulso–respuesta de la inflación ante un choque en la variación del tipo de cambio nominal. El impulso corresponde a una desviación estándar positiva en $\Delta tc$, que en la definición utilizada equivale a un shock positivo (depreciación) del tipo de cambio nominal.
+
+Como se observa el choque sobre impacto genera un aumento inmediato de la inflación, del orden de 1,5 puntos porcentuales en términos anualizados, con un intervalo de confianza que se sitúa claramente por encima de cero. Este resultado indica que una depreciación nominal inesperada se traslada de manera casi instantánea, aunque de magnitud acotada, a los precios al consumidor. No obstante, la respuesta de la inflación cae rápidamente; de hecho, entre los meses 2 y 6 la respuesta puntual oscila levemente en torno a cero, con valores pequeños y no significativamente distintos de cero, para luego mostrar únicamente un efecto residual de muy baja magnitud hacia el final del horizonte de doce meses.
+
+En conjunto, estas trayectorias sugieren que el pass-through del tipo de cambio nominal a la inflación es de muy corto plazo, incompleto y poco persistente. Es decir, el impacto inflacionario de la depreciación se concentra casi por completo en el periodo contemporáneo al shock, mientras que en los meses siguientes el sistema parece absorber y neutralizar el impulso cambiario, de modo que no se observan efectos significativos adicionales sobre la inflación. Este patrón es consistente con un entorno en el que la política monetaria y el anclaje de expectativas limitan el traslado de las fluctuaciones cambiarias a los precios internos, y anticipa los resultados cuantitativos obtenidos a partir del coeficiente de pass-through acumulado a doce meses que se presenta en la sección siguiente.
+
+:::{#fig-choque-tc-sobre-ipc}
+![](imagenes/irf_impacto_tc_sobre_ipc.png){width=90%}
+
+Función de impulso respuesta de la inflación a un choque de tipo de cambio nominal en Guatemala, periodo 2001-2025.
+\
+\textbf{Fuente}: Elaboración propia.
+:::
+
+### Choque del tipo de cambio real sobre la inflación
+
+También resulta relevante analizar los efectos de un choque de depreciación real (aumento de $tcr_{gap,t}$) sobre la inflación. La Figura @fig-choque-tcr-sobre-ipc muestra la función impulso–respuesta correspondiente, en donde se observa que, en el choque sobre impacto, la respuesta de la inflación es claramente negativa y las bandas de confianza se ubican por debajo de cero, lo que indica un efecto deflacionario estadísticamente significativo en el muy corto plazo. No obstante, este efecto se reduce rápidamente.
+
+A partir de los 2–3 meses, la respuesta de la inflación se torna positiva y se mantiene en positivo durante varios meses, con valores que en diversos horizontes se sitúan por encima de cero de manera estadísticamente significativa, antes de converger gradualmente hacia su nivel de equilibrio. En este sentido, esta trayectoria sugiere que el mecanismo de pass-through es positivo pero retardado y de magnitud acotada. Es decir, en el muy corto plazo, la depreciación real puede verse compensada por otros canales presentes en el sistema —como la reacción simultánea de la política monetaria, la rigidez de ciertos precios o la lenta actualización de precios—, de modo que el impacto inicial sobre la inflación es negativo y transitorio.
+
+Sin embargo, conforme los agentes ajustan gradualmente los precios de bienes transables y de insumos importados, la depreciación termina trasladándose parcialmente a la inflación, lo que se refleja en las respuestas positivas observadas en los meses posteriores. En conjunto, los resultados son consistentes con un pass-through cambiario positivo, moderado y retardado para la economía guatemalteca.
+
+:::{#fig-choque-tcr-sobre-ipc}
+![](imagenes/irf_impacto_tcr_sobre_ipc.png){width=90%}
+
+Función de impulso respuesta de la inflación a un choque de tipo de cambio real en Guatemala, periodo 2001-2025. 
+\
+\textbf{Fuente}: Elaboración propia.
+:::
+
+### Respuesta del tipo de cambio nominal a un choque real
+
+La figura 4 presenta la respuesta del tipo de cambio nominal ante un choque ante un choque en la brecha del tipo de cambio real. Como se observa, el choque sobre impacto es claramente positivo: el tipo de cambio nominal se deprecia de manera significativa en el periodo del choque, con una respuesta máxima cercana a 3–4 puntos porcentuales, y las bandas de confianza se sitúan completamente por encima de cero, este comportamiento es coherente con la idea de que una depreciación real está asociada, en primera instancia, a un movimiento depreciatorio del tipo de cambio nominal.
+
+:::{#fig-choque-tcr-sobre-tc}
+![](imagenes/irf_impacto_tcr_sobre_tc.png){width=90%}
+
+Función de impulso respuesta del tipo de cambio nominal a un choque de tipo de cambio real en Guatemala, periodo 2001-2025. 
+\
+\textbf{Fuente}: Elaboración propia.
+:::
+
+Posteriormente, la respuesta del tipo de cambio nominal se reduce rápidamente y, alrededor del segundo–tercer mes, negativo, alcanzando un mínimo cercano -1 / –1,5 puntos porcentuales, antes de converger gradualmente hacia cero en el horizonte de un año. Es decir, tras la depreciación inicial, el tipo de cambio nominal experimenta una ligera apreciación transitoria. Esta dinámica particular, sugiere un patrón de \textit{overshooting} del tipo de cambio nominal: el ajuste inicial es suficientemente fuerte como para generar la depreciación real, pero conforme los precios internos y otras variables del sistema (incluida la respuesta de la política monetaria y las intervenciones cambiarias, que es lo tradicional en economías como la guatemalteca) comienzan a ajustarse, el tipo de cambio nominal revierte parte del movimiento y tiende a estabilizarse nuevamente. En conjunto, los resultados indican que el choque de depreciación real se traduce en una depreciación nominal significativa, pero de carácter transitorio, seguida por un proceso de corrección que devuelve el tipo de cambio nominal a su nivel de equilibrio de mediano plazo.
+
+## Pass-trough estimado
+
+Continuando con el análisis, se buscó cuantificar el grado de traspaso del tipo de cambio a la inflación doméstica, para lo cual se utilizó la información contenida en las funciones impulso–respuesta del modelo VAR, abordadas en el inciso anterior; en particular, se consideró la respuesta de la inflación mensual anualizada $\Delta ipc$ frente a un choque estructural en la variación mensual anualizada del tipo de cambio nominal $\Delta tc$.
+
+A partir del VAR estimado, se calcularon primero las funciones impulso–respuesta ortogonalizadas de $\Delta tc$ y $\Delta ipc$ ante un shock en $\Delta tc$; posteriormente, estas respuestas se acumularon a lo largo del horizonte de análisis para obtener el efecto total del choque sobre cada variable. De este modo, el pass-through cambiario acumulado a un horizonte h se define como:
+
+\begin{equation}
+PT_H = \frac{\sum_{h=0}^{H} \frac{\partial \pi_h}{\partial \varepsilon_0^e}}{\sum_{h=0}^{H} \frac{\partial e_h}{\partial \varepsilon_0^e}}
+\end{equation}
+
+en donde:
+
+\begin{itemize}
+    \item $PT_H$: Representa el \textit{pass-through} acumulado al horizonte temporal $H$, el cual mide el cambio relativo en la inflación como consecuencia de un choque unitario en el tipo de cambio.
+
+    \item $\pi_h$: es la inflación en el periodo $h$.
+
+    \item $\varepsilon_0^e$: es el choque inicial unitario en el tipo de cambio nominal en el periodo $h$.
+
+    \item $e_h$: es la tasa de variación del tipo de cambio nominal en el periodo $h$.
+\end{itemize}
+
+En síntesis, el numerador recoge el efecto acumulado del shock cambiario sobre la inflación y el denominador el efecto acumulado sobre el propio tipo de cambio; por tanto, PT_h mide qué proporción de la depreciación nominal se transmite, en el horizonte h, a la inflación mensual anualizada, valores cercanos a cero indican un traspaso reducido, mientras que valores próximos a uno serían consistentes con un pass-through casi completo.
+
+Los resultados empíricos muestran que el traspaso es positivo, pero claramente incompleto. Para un horizonte de doce meses, el coeficiente estimado $PT_12$ se ubica alrededor de 0.168, lo que implica que solo una fracción pequeña de la depreciación nominal se traduce en mayores precios al consumidor en el corto plazo; en particular, implica que una depreciación de 1 \% del tipo de cambio nominal se asocia, en promedio, con un incremento de alrededor de 0,17 puntos porcentuales en la inflación acumulada al cabo de un año.
+
+Estas estimaciones son coherentes con la evidencia obtenida a partir de las funciones impulso–respuesta acumuladas: la respuesta de $\Delta ipc$ a un shock en $\Delta tc$ es inicialmente positiva y estadísticamente significativa, pero tiende a diluirse conforme aumenta el horizonte temporal. Ello sugiere que, aunque el tipo de cambio es un determinante relevante de la dinámica inflacionaria de muy corto plazo, la política monetaria y otros factores nominales contribuyen a amortiguar el impacto inicial, evitando que las depreciaciones se traduzcan en incrementos persistentes de la inflación.
+
+El reducido efecto de pass-through observado es consistente con otros trabajos realizados para Guatemala. Por ejemplo, @CarpioSam2007 reporta un pass-through de alrededor de 9.1 % a un año (con una especificación lineal), mientras que el @BancoGuatemala2005 lo estima en un rango entre 11.4 % y 18 %, valores inferiores a los reportados para otros países de América Latina.
+
+En conjunto, los resultados apuntan a un pass-through cambiario bajo en Guatemala, lo cual es coherente con el régimen de política monetaria actual, en donde la adopción del Esquema de Metas Explícitas de Inflación en 2005 ha contribuido a generar un entorno macroeconómico caracterizado por una inflación moderada y una relativa estabilidad cambiaria, lo cual podría ser un factor determinante en la reducción del efecto de pass-through en el país. En este sentido, autores como @Taylor2000 sugieren que entornos de inflación baja y estable actúan como un amortiguador frente a choques adversos sobre los precios, incluidos aquellos originados por fluctuaciones del tipo de cambio.
 
 ## Descomposición de varianza de errores de pronóstico (FEVD por sus siglas en inglés)
 Los resultados del FEVD permiten identificar el peso de cada shock en la evolución de las variables del modelo. 

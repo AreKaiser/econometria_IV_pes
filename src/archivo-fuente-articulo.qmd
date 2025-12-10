@@ -1,5 +1,7 @@
 ---
 title: "Magnitud y velocidad del pass-through cambiario en Guatemala: un enfoque de series de tiempo multivariadas"
+execute: 
+  cache: true   
 author: 
     - "Rita Guadalupe Pérez Romero"
     - "Paulo Augusto Garrido Grijalva"
