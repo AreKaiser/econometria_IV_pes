@@ -21,7 +21,7 @@ Tipo de cambio efectivo real (ITCER) & 297 & mensual & SECMCA \\
 \end{table*}
 ```
 
-A continuación se detallan las transformaciones realizadas a estas variables y las variables resultantes, las cuales fueron empleadas en el modelo VAR.
+A continuación se detallan las transformaciones realizadas a estas variables y las variables resultantes, metodología que fue tomada de @CarpioSam2007, y las cuales fueron empleadas en el modelo VAR.
 
 ### Inflación mensual anualizada
 
@@ -74,7 +74,7 @@ Para poder evaluar el efecto passthrough del tipo de cambio en la economía de G
 Siguiendo la notación de @Enders, un modelo VAR(p) estructural con variables dummy está dado por
 
 \begin{equation}\label{ec:varp_e}
-B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_j X_{t-j} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
+B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_j X_{t-} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
 \end{equation}
 
 donde $X_t$ es un vector $4 \times 1$ que contiene a las variables $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_{12}$ y $\Delta \pi_{t}$; $\Gamma_p$ son matrices de coeficientes de dimension $4 \times 4$, $\Phi$ es la matriz de coeficientes de las variables dummy estacionarias de dimensión $4 \times 11$, $S_t$ es el vector que contiene a las variables dummy $\left( D_{Ene,t}, \ldots, D_{Nov,t} \right)^T$ (sin la dummy para diciembre para evitar multicolinealidad, por lo que diciembre funciona como el mes base) y $\varepsilon_t$ es un vector $4 \times 1$$ de error de predicción con una matriz de covarianza $\mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4$, también llamado vector de choques estructurales.
