@@ -87,6 +87,8 @@ X_t = A_0 + \sum_{j=1}^{p} A_j X_{t-j} + \Psi S_t + e_t, \; t = 1,\ldots, T
 
 donde $A_0 = B^{-1} \Gamma_0$, $A_p = B^{-1} \Gamma_p$, $\Psi = B^{-1} \Phi$ y $e_t = B^{-1} \varepsilon_t$ y su matriz de covarianza es $\mathbb{E}\left[ e_t e_t^T \right] = \Sigma_e$.
 
+Donde el número óptimo de resagos ($p$) se determinó utilizando el criterio de información de Akaike, dado que, para realizar pronósticos, es el criterio que devuele el mejor modelo.
+
 Como el modelo reducido estima 6 parámetros menos que el modelo estructural, se imponen sobre este último 6 restricciones para poder identificarlo a partir de la estimación realizada para el modelo reducido. El esquema de identificación se detalla en la siguiente sección.
 
 
@@ -145,4 +147,9 @@ $$
 
 Por lo que $\Gamma_0 = L^{-1} A_0$, $\Gamma_p = L^{-1} A_p$ y $\Phi = L^{-1} \Psi$
 
-Como la forma de ordenar las variables importa, ordenan las variables de tal forma que la variable que tome más tiempo en reaccionar es la primera (y por ello las más exógena) y la que tome menos tiempo en reaccionar es la última (y por ello la más endógena). En este trabajo, se ordenó las variables de la siguiente forma: $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_t$ y $\Delta \pi_t$.
+Como la forma de ordenar las variables importa, ordenan las variables de tal forma que la variable que tome más tiempo en reaccionar es la primera (y por ello las más exógena) y la que tome menos tiempo en reaccionar es la última (y por ello la más endógena). En este trabajo, se ordenó las variables de la siguiente forma: $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_t$ y $\Delta \pi_t$. Este orden refleja la estructura de una pequeña economía abierta en frecuencia mensual: el tipo de cambio real, se interpreta como una variable principalmente determinada por condiciones externas de competitividad y demanda mundial, por lo que no responde de manera contemporánea a choques domésticos, mientras que la actividad puede reaccionar dentro del mes a cambios en los precios relativos externos, medidos por el tipo de cambio real, sin embargo no ajusta instantáneamente a perturbaciones puramente nominales en el tipo de cambio ni en la inflación. 
+
+A su vez, el tipo de cambio nominal, determinado en mercados financieros relativamente más flexibles, puede responder contemporáneamente a choques reales (del tipo de cambio y de la brecha del producto), y la inflación se sitúa al final de la recursión bajo la hipótesis de rigideces nominales, de modo que los precios al consumidor incorporan con rezago la información contenida en las demás variables. Este esquema es consistente con la literatura de transmisión cambiaria en economías emergentes y con aplicaciones previas para Guatemala.
+
+
+

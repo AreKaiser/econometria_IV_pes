@@ -1,5 +1,5 @@
 ---
-title: "Magnitud y velocidad del pass-through cambiario en Guatemala: un enfoque de series de tiempo multivariadas"
+title: "Magnitud del pass-through cambiario en Guatemala: un enfoque de series de tiempo multivariadas"
 execute: 
   cache: true   
 author: 

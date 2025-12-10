@@ -32,7 +32,7 @@ Se estimaron modelos con distintos órdenes de rezago y se aplicaron los criteri
 \hat{X}_t = \hat{A}_0 + \sum_{j=1}^{4} \hat{A}_j X_{t-j} + \hat{\Psi} S_t 
 \end{equation}
 
-Los datos con los coeficientes estimados se encuentra en el anexo...
+Los datos con los coeficientes estimados se encuentra en el anexo xxx.
 
 ## Diagnóstico del modelo
 
@@ -127,6 +127,24 @@ Estas estimaciones son coherentes con la evidencia obtenida a partir de las func
 El reducido efecto de pass-through observado es consistente con otros trabajos realizados para Guatemala. Por ejemplo, @CarpioSam2007 reporta un pass-through de alrededor de 9.1 % a un año (con una especificación lineal), mientras que el @BancoGuatemala2005 lo estima en un rango entre 11.4 % y 18 %, valores inferiores a los reportados para otros países de América Latina.
 
 En conjunto, los resultados apuntan a un pass-through cambiario bajo en Guatemala, lo cual es coherente con el régimen de política monetaria actual, en donde la adopción del Esquema de Metas Explícitas de Inflación en 2005 ha contribuido a generar un entorno macroeconómico caracterizado por una inflación moderada y una relativa estabilidad cambiaria, lo cual podría ser un factor determinante en la reducción del efecto de pass-through en el país. En este sentido, autores como @Taylor2000 sugieren que entornos de inflación baja y estable actúan como un amortiguador frente a choques adversos sobre los precios, incluidos aquellos originados por fluctuaciones del tipo de cambio.
+
+### comparación con la evidencia regional
+
+Los resultados obtenidos mediante el modelo VAR para la economía guatemalteca son consistentes con la tendencia observada a nivel regional en América Latina durante la última década. Según el Regional Economic Outlook del Fondo Monetario Internacional [-@FMI2016REO], las economías de la región han experimentado una disminución sustancial y generalizada en el coeficiente de pass-through del tipo de cambio hacia los precios al consumidor.
+
+Mientras que históricamente las depreciaciones en la región se asociaban con espirales inflacionarias inmediatas, la evidencia reciente sugiere que el traspaso promedio a los precios al consumidor en América Latina se sitúa por debajo de 0.3, siendo aún menor en las economías con regímenes de metas de inflación consolidados (LA5), donde el traspaso implícito ronda el 0.2 [@FMI2016REO].
+
+Al contrastar esto con nuestra estimación local, observamos patrones similares:
+
+\begin{enumerate}
+    \item Magnitud del Traspaso: El reporte del FMI destaca que en países con marcos de política monetaria creíbles, los responsables de la política tienen espacio para permitir que los precios relativos se ajusten a través de la depreciación sin comprometer los objetivos de inflación. Esto se alinea con nuestros resultados de la descomposición de varianza, donde la inflación permanece explicada mayoritariamente por shocks propios y factores domésticos, evidenciando un pass-through que, aunque existente, es limitado.
+
+    \item Mecanismos de Transmisión: El documento del FMI argumenta que la reducción en el pass-through se debe a un mejor anclaje de las expectativas de inflación a mediano plazo. Nuestros resultados corroboran esta hipótesis para el caso nacional: el hecho de que el tipo de cambio nominal tenga un aporte menor en la varianza de la inflación sugiere que los agentes económicos no trasladan automáticamente las variaciones cambiarias a precios, conducta coherente con una mayor credibilidad en la meta del banco central.
+
+    \item Rol del Tipo de Cambio Real: Un hallazgo particular de nuestro modelo es la retroalimentación del tipo de cambio real ($TCR$) hacia la inflación y el tipo de cambio nominal. Esto es congruente con la visión del FMI de que las depreciaciones recientes en la región han servido para corregir desequilibrios externos y facilitar el ajuste de precios relativos ante shocks de términos de intercambio, sin generar los efectos de segunda vuelta (second-round effects) desestabilizadores que se observaban en décadas anteriores.
+\end{enumerate}
+
+En suma, la evidencia empírica de este estudio sitúa a la economía analizada dentro del comportamiento estilizado de la región: un sistema donde las perturbaciones nominales cambiarias tienen una capacidad decreciente para desestabilizar la inflación doméstica, gracias a la robustez del esquema de política monetaria.
 
 ## Descomposición de varianza de errores de pronóstico (FEVD por sus siglas en inglés)
 Los resultados del FEVD permiten identificar el peso de cada shock en la evolución de las variables del modelo. 
