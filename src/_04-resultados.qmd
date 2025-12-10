@@ -1,6 +1,6 @@
 # Resultados y discusión
 
-En este apartado se muestran los resultados de las estimaciones realizadas para el modelo VAR y se discuten sus implicaciones económicas, en particular respecto al grado e intensidad del \textit{pass-through} cambiario. Primero se muestra el análisis preliminar de las series y la verificación de la estacionariedad; luego se describe la selección del orden del VAR y el diagnóstico del modelo. Finalmente, se analizan las funciones de impulso–respuesta y se cuantifica el \textit{pass-through} cambiario acumulado.
+En este apartado se muestran los resultados de las estimaciones realizadas para el modelo VAR y se discuten sus implicaciones económicas, en particular respecto al grado del \textit{pass-through} cambiario. Primero se muestra el análisis preliminar de las series y la verificación de la estacionariedad, luego se describe la selección del orden del VAR y el diagnóstico del modelo y, finalmente, se analizan las funciones de impulso–respuesta y se cuantifica el \textit{pass-through} cambiario acumulado.
 
 ## Análisis preliminar de las series
 
@@ -11,10 +11,10 @@ Antes de proceder con el modelo, se analizó el comportamiento de las series de 
 
 Evolución de la brecha del tipo de cambio real ($tcr_{gap}$), la brecha del IMAE ($imae_{gap}$), la variación mensual anualizada del tipo de cambio nominal ($\Delta tc$) y la variación mensual anualizada de la inflación ($\Delta ipc$), en el periodo de enero de 2001–agosto de 2025.
 \
-*\textbf{Fuente}: Elaboración propia con datos del Banco de Guatemala (IMAE y tipo de cambio nominal), SECMCA (ITCER) e Instituto Nacional de Estadística –INE– (IPC).*
+*\textbf{Fuente}: elaboración propia con datos del Banco de Guatemala (IMAE y tipo de cambio nominal), SECMCA (ITCER) e Instituto Nacional de Estadística –INE– (IPC).*
 :::
 
-Visualmente, las cuatro series de tiempo muestran media y varianza constante, lo que sugiere estacionariedad; sin embargo, la brecha del IMAE presenta oscilaciones regulares que se repiten sistemáticamente con la misma forma cada año, lo que sugiere la presencia de un componente estacional residual. En este contexto, con el fin de evitar que esta estacionalidad determinística afecte la dinámica estocástica del sistema, el modelo VAR se especificó con dummies estacionales mensuales (11 variables ficticias), que capturan diferencias sistemáticas en el nivel medio de la actividad económica a lo largo del año.
+Visualmente, las cuatro series de tiempo muestran media y varianza constante, con la excepción de $imae_{gap}$ , lo que sugiere estacionariedad; sin embargo, la brecha del IMAE presenta oscilaciones regulares que se repiten sistemáticamente con la misma forma cada año, lo que sugiere la presencia de un componente estacional residual. En este contexto, con el fin de evitar que esta estacionalidad determinística afecte la dinámica estocástica del sistema, el modelo VAR se especificó con dummies estacionales mensuales (11 variables ficticias), que capturan diferencias sistemáticas en el nivel medio de la actividad económica a lo largo del año.
 
 ## Pruebas de raíz unitaria y estacionariedad
 
