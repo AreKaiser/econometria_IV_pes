@@ -7,7 +7,7 @@ En este apartado se muestran los resultados de las estimaciones realizadas para 
 Antes de proceder con el modelo, se analizó el comportamiento de las series de datos; la Figura 1 presenta la evolución de las cuatro variables consideradas en el modelo: la brecha del tipo de cambio real ($tcr_{gap,t}$), la brecha del índice mensual de actividad económica ($imae_{gap,t}$), la variación mensual anualizada del tipo de cambio nominal ($\Delta tc_t$) y la variación mensual anualizada del índice de precios al consumidor ($\Delta ipc_t$), para el período enero de 2001 a agosto de 2025.
 
 :::{#fig-hechos-estilizados}
-![](imagenes/hechos_estilizados_variables.png){width=80%}
+![](imagenes/hechos_estilizados_variables.png){width=90%}
 
 Evolución de la brecha del tipo de cambio real ($tcr_{gap}$), la brecha del IMAE ($imae_{gap}$), la variación mensual anualizada del tipo de cambio nominal ($\Delta tc$) y la variación mensual anualizada de la inflación ($\Delta ipc$), en el periodo de enero de 2001–agosto de 2025.
 \

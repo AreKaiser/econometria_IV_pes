@@ -24,8 +24,8 @@ format:
         mainfont: XCharter
         mathfont: XCharter-Math.otf
         geometry:
-            - left=2cm
-            - right=2cm
+            - left=2.25cm
+            - right=2.25cm
             - top=2.5cm
             - bottom=2.5cm
         include-in-header: 
