@@ -77,7 +77,7 @@ Para poder evaluar el efecto passthrough del tipo de cambio en la economía de G
 Siguiendo la notación de @Enders, un modelo VAR(p) estructural con variables dummy está dado por:
 
 \begin{equation}\label{ec:varp_e}
-B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_j X_{t-} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
+B X_t = \Gamma_0 + \sum_{j=1}^{p} \Gamma_j X_{t-j} + \Phi S_t + \varepsilon_t, \; t = 1,\ldots, T
 \end{equation}
 
 donde $X_t$ es un vector $4 \times 1$ que contiene a las variables $tcr_{gap,t}$, $imae_{gap,t}$, $\Delta tc_{12}$ y $\Delta \pi_{t}$; $\Gamma_p$ son matrices de coeficientes de dimension $4 \times 4$, $\Phi$ es la matriz de coeficientes de las variables dummy estacionarias de dimensión $4 \times 11$, $S_t$ es el vector que contiene a las variables dummy $\left( D_{Ene,t}, \ldots, D_{Nov,t} \right)^T$ (sin la dummy para diciembre para evitar multicolinealidad, por lo que diciembre funciona como el mes base) y $\varepsilon_t$ es un vector $4 \times 1$ de error de predicción con una matriz de covarianza $\mathbb{E}\left[ \varepsilon_t \varepsilon_t^T \right] = I_4$, también llamado vector de choques estructurales.
@@ -90,7 +90,7 @@ X_t = A_0 + \sum_{j=1}^{p} A_j X_{t-j} + \Psi S_t + e_t, \; t = 1,\ldots, T
 
 donde $A_0 = B^{-1} \Gamma_0$, $A_p = B^{-1} \Gamma_p$, $\Psi = B^{-1} \Phi$ y $e_t = B^{-1} \varepsilon_t$ y su matriz de covarianza es $\mathbb{E}\left[ e_t e_t^T \right] = \Sigma_e$.
 
-Donde el número óptimo de resagos ($p$) se determinó utilizando el criterio de información de Akaike, dado que, para realizar pronósticos, es el criterio que devuele el mejor modelo.
+Donde el número óptimo de rezagos ($p$) se determinó utilizando el criterio de información de Akaike, dado que, para realizar pronósticos, es el criterio que devuele el mejor modelo.
 
 Como el modelo reducido estima 6 parámetros menos que el modelo estructural, se imponen sobre este último 6 restricciones para poder identificarlo a partir de la estimación realizada para el modelo reducido. El esquema de identificación se detalla en la siguiente sección.
 
