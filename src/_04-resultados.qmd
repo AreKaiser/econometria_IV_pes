@@ -120,7 +120,7 @@ en donde:
     \item $e_h$: es la tasa de variación del tipo de cambio nominal en el periodo $h$.
 \end{itemize}
 
-En síntesis, el numerador recoge el efecto acumulado del shock cambiario sobre la inflación y el denominador el efecto acumulado sobre el propio tipo de cambio; por tanto, $\PT_h$ mide qué proporción de la depreciación nominal se transmite, en el horizonte h, a la inflación mensual anualizada, valores cercanos a cero indican un traspaso reducido, mientras que valores próximos a uno serían consistentes con un pass-through casi completo.
+En síntesis, el numerador recoge el efecto acumulado del shock cambiario sobre la inflación y el denominador el efecto acumulado sobre el propio tipo de cambio; por tanto, $PT_H$ mide qué proporción de la depreciación nominal se transmite, en el horizonte h, a la inflación mensual anualizada, valores cercanos a cero indican un traspaso reducido, mientras que valores próximos a uno serían consistentes con un pass-through casi completo.
 
 Los resultados empíricos muestran que el traspaso es positivo, pero claramente incompleto. Para un horizonte de doce meses, el coeficiente estimado $PT_12$ se ubica alrededor de 0.168, lo que implica que solo una fracción pequeña de la depreciación nominal se traduce en mayores precios al consumidor en el corto plazo; en particular, implica que una depreciación de 1 \% del tipo de cambio nominal se asocia, en promedio, con un incremento de alrededor de 0,17 puntos porcentuales en la inflación acumulada al cabo de un año.
 

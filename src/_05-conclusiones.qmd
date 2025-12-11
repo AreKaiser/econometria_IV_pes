@@ -1,4 +1,4 @@
-# Conclusiones (wip)
+# Conclusiones
 
 \begin{enumerate}
     \item En conjunto, la evidencia obtenida a partir del modelo SVAR sugiere que el pass-through del tipo de cambio nominal a la inflación en Guatemala es positivo aunque de baja magnitud. Las funciones impulso–respuesta indican que una depreciación inesperada del tipo de cambio nominal genera un aumento inmediato de la inflación estimado en 1.5 puntos porcentuales, lo cual apunta a un impacto inflacionario concentrado en el muy corto plazo y de carácter esencialmente transitorio.
