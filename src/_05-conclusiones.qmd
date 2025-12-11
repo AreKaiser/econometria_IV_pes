@@ -1,11 +1,11 @@
 # Conclusiones (wip)
 
 \begin{enumerate}
-    \item En conjunto, la evidencia obtenida a partir del modelo SVAR sugiere que el pass-through del tipo de cambio nominal a la inflación en Guatemala es positivo, pero bajo e incompleto. Las funciones impulso–respuesta indican que una depreciación inesperada del tipo de cambio nominal genera un aumento inmediato de la inflación de alrededor de 1.5 puntos porcentuales, lo cual apunta a un impacto inflacionario concentrado en el muy corto plazo y de carácter esencialmente transitorio.
+    \item En conjunto, la evidencia obtenida a partir del modelo SVAR sugiere que el pass-through del tipo de cambio nominal a la inflación en Guatemala es positivo aunque de baja magnitud. Las funciones impulso–respuesta indican que una depreciación inesperada del tipo de cambio nominal genera un aumento inmediato de la inflación estimado en 1.5 puntos porcentuales, lo cual apunta a un impacto inflacionario concentrado en el muy corto plazo y de carácter esencialmente transitorio.
 
-    \item Para un horizonte de doce meses, el coeficiente estimado se sitúa en torno a 0.17, lo que implica que una depreciación de 1 \% del tipo de cambio nominal se asocia, en promedio, con un incremento de aproximadamente 0.17 puntos porcentuales en la inflación acumulada al cabo de un año; es decir, solo una fracción limitada de las depreciaciones se traslada a los precios al consumidor, muy lejos de un traspaso pleno. 
+    \item Para un horizonte de doce meses, el coeficiente estimado indica que una depreciación de 1% del tipo de cambio nominal se asocia, en promedio, con un incremento de aproximadamente 0.17% en la inflación acumulada al cabo de un año; es decir, solo una fracción limitada de las depreciaciones se traslada a los precios al consumidor, muy lejos de un traspaso pleno. 
 
-    \item Los resultados del Pass-Trough se ubican en el rango documentado por la literatura para Guatemala y confirma que el pass-through cambiario en la economía guatemalteca es menor al observado en otras economías latinoamericanas. 
+    \item Los resultados del Pass-Through devuelven un valor aceptable y comparable con aquellos documentados por la literatura disponible para Guatemala y confirma que el pass-through cambiario en la economía guatemalteca es menor al observado en otras economías latinoamericanas. 
 
     \item Desde la perspectiva de política monetaria, los hallazgos son consistentes con un régimen en el que la autoridad ha logrado anclar las expectativas de inflación y, por esa vía, contener el traslado de las fluctuaciones cambiarias a los precios internos, aun cuando el tipo de cambio continúa siendo un canal de transmisión relevante en el corto plazo.
 \end{enumerate}

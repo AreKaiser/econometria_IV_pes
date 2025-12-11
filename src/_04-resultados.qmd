@@ -84,7 +84,7 @@ Función de impulso respuesta de la inflación a un choque de tipo de cambio rea
 
 ### Respuesta del tipo de cambio nominal a un choque real
 
-La figura [-@fig-choque-tcr-sobre-tc] presenta la respuesta del tipo de cambio nominal ante un choque ante un choque en la brecha del tipo de cambio real. Como se observa, el choque sobre impacto es claramente positivo: el tipo de cambio nominal se deprecia de manera significativa en el periodo del choque, con una respuesta máxima cercana a 3–4 puntos porcentuales, y las bandas de confianza se sitúan completamente por encima de cero, este comportamiento es coherente con la idea de que una depreciación real está asociada, en primera instancia, a un movimiento depreciatorio del tipo de cambio nominal.
+La figura [-@fig-choque-tcr-sobre-tc] presenta la respuesta del tipo de cambio nominal ante un choque en la brecha del tipo de cambio real. Como se observa, el choque sobre impacto es claramente positivo: el tipo de cambio nominal se deprecia de manera significativa en el periodo del choque, con una respuesta máxima cercana a 3–4 puntos porcentuales, y las bandas de confianza se sitúan completamente por encima de cero, este comportamiento es coherente con la idea de que una depreciación real está asociada, en primera instancia, a un movimiento depreciatorio del tipo de cambio nominal.
 
 :::{#fig-choque-tcr-sobre-tc}
 ![](imagenes/irf_impacto_tcr_sobre_tc.png){width=90%}
@@ -98,7 +98,7 @@ Posteriormente, la respuesta del tipo de cambio nominal se reduce rápidamente y
 
 Alternativamente, se consideró el posible el impacto de la pandemia en las variables propias del análisis, por lo que se procedió a realizar el mismo ejercicio  con datos que excluyen los períodos a partir de enero 2020. Las relaciones identificadas a través de la observación de las funciones de impulso respuesta, permiten concluir los mismos efectos aunque con trayectorias mas estables (sin ruido). Resalta efecto de pass-through acumulado del tipo de cambio nomianl sobre la ínflación de 22.9%
 
-## Pass-trough estimado
+## Pass-through estimado
 
 Continuando con el análisis, se buscó cuantificar el grado de traspaso del tipo de cambio a la inflación doméstica, para lo cual se utilizó la información contenida en las funciones impulso–respuesta del modelo VAR, abordadas en el inciso anterior; en particular, se consideró la respuesta de la inflación mensual anualizada $\Delta ipc$ frente a un choque estructural en la variación mensual anualizada del tipo de cambio nominal $\Delta tc$.
 
@@ -120,11 +120,11 @@ en donde:
     \item $e_h$: es la tasa de variación del tipo de cambio nominal en el periodo $h$.
 \end{itemize}
 
-En síntesis, el numerador recoge el efecto acumulado del shock cambiario sobre la inflación y el denominador el efecto acumulado sobre el propio tipo de cambio; por tanto, PT_h mide qué proporción de la depreciación nominal se transmite, en el horizonte h, a la inflación mensual anualizada, valores cercanos a cero indican un traspaso reducido, mientras que valores próximos a uno serían consistentes con un pass-through casi completo.
+En síntesis, el numerador recoge el efecto acumulado del shock cambiario sobre la inflación y el denominador el efecto acumulado sobre el propio tipo de cambio; por tanto, $\PT_h$ mide qué proporción de la depreciación nominal se transmite, en el horizonte h, a la inflación mensual anualizada, valores cercanos a cero indican un traspaso reducido, mientras que valores próximos a uno serían consistentes con un pass-through casi completo.
 
 Los resultados empíricos muestran que el traspaso es positivo, pero claramente incompleto. Para un horizonte de doce meses, el coeficiente estimado $PT_12$ se ubica alrededor de 0.168, lo que implica que solo una fracción pequeña de la depreciación nominal se traduce en mayores precios al consumidor en el corto plazo; en particular, implica que una depreciación de 1 \% del tipo de cambio nominal se asocia, en promedio, con un incremento de alrededor de 0,17 puntos porcentuales en la inflación acumulada al cabo de un año.
 
-Estas estimaciones son coherentes con la evidencia obtenida a partir de las funciones impulso–respuesta acumuladas: la respuesta de $\Delta ipc$ a un shock en $\Delta tc$ es inicialmente positiva y estadísticamente significativa, pero tiende a diluirse conforme aumenta el horizonte temporal. Ello sugiere que, aunque el tipo de cambio es un determinante relevante de la dinámica inflacionaria de muy corto plazo, la política monetaria y otros factores nominales contribuyen a amortiguar el impacto inicial, evitando que las depreciaciones se traduzcan en incrementos persistentes de la inflación.
+Estas estimaciones    son coherentes con la evidencia obtenida a partir de las funciones impulso–respuesta acumuladas: la respuesta de $\Delta ipc$ a un shock en $\Delta tc$ es inicialmente positiva y estadísticamente significativa, pero tiende a diluirse conforme aumenta el horizonte temporal. Ello sugiere que, aunque el tipo de cambio es un determinante relevante de la dinámica inflacionaria de muy corto plazo, la política monetaria y otros factores nominales contribuyen a amortiguar el impacto inicial, evitando que las depreciaciones se traduzcan en incrementos persistentes de la inflación.
 
 El reducido efecto de pass-through observado es consistente con otros trabajos realizados para Guatemala. Por ejemplo, @CarpioSam2007 reporta un pass-through de alrededor de 9.1 % a un año (con una especificación lineal), mientras que el @BancoGuatemala2005 lo estima en un rango entre 11.4 % y 18 %, valores inferiores a los reportados para otros países de América Latina.
 
@@ -148,7 +148,7 @@ Al contrastar esto con nuestra estimación local, observamos patrones similares:
 
 En suma, la evidencia empírica de este estudio sitúa a la economía analizada dentro del comportamiento estilizado de la región: un sistema donde las perturbaciones nominales cambiarias tienen una capacidad decreciente para desestabilizar la inflación doméstica, gracias a la robustez del esquema de política monetaria.
 
-## Descomposición de varianza de errores de pronóstico (FEVD por sus siglas en inglés)
+## Descomposición de varianza de errores de pronóstico
 Los resultados del FEVD permiten identificar el peso de cada shock en la evolución de las variables del modelo. 
 
 En el caso de la brecha del tipo de cambio real (TCR), se observa que toda su variación a lo largo del horizonte se explica por sus propios shocks. Inclusive cuando se observa los horizontes más lejanos, apenas aparecen contribuciones marginales provenientes de las demás variables en al rededor de un 10%. En otras palabras, en el comportamiento de esta variable predominan  perturbaciones internas, esto resulta esperable puesto que se realizó la restricción considerando el TCR como la más exógena.
