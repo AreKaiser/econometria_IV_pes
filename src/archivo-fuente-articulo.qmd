@@ -24,7 +24,6 @@ format:
         toc-title: Contenidos
         number-sections: true
         documentclass: article 
-        classoption: [twocolumn]
         papersize: letter  
         mainfont: XCharter
         mathfont: XCharter-Math.otf
@@ -34,11 +33,18 @@ format:
             - top=2.5cm
             - bottom=2.5cm
         include-in-header: 
-            text: 
+            text: |
                 \usepackage{microtype}
                 \usepackage{amsmath}
                 \usepackage{booktabs,caption}
                 \setlength{\columnsep}{0.85cm}
+                \usepackage{etoolbox}
+                \makeatletter
+                \renewcommand{\and}{\\}
+                \makeatother
+        include-before-body: 
+            text: |
+                \twocolumn
         output-file: Passthrough_GTM_G4.pdf
         cite-method: citeproc    
 ---
